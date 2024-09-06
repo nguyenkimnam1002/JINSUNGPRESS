@@ -1,6 +1,8 @@
 <?php
 ob_start();
 session_start();
+
+require('./master_layout/Function.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

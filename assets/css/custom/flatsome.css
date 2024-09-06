@@ -8308,7 +8308,10 @@ li .comment-respond small {
 
 .logo {
     line-height: 1;
-    margin: 0
+    margin: 0;
+    width: 251px !important;
+	height: 55px !important;
+	object-fit: cover;
 }
 
 .logo-tagline {

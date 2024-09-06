@@ -1,12 +1,13 @@
 <?php include_once('./master_layout/header.php') ;
 require "connect.php";
 ?>
+
 <main id="main" class="">
     <div id="content" role="main" class="content-area">
-        <div class="w3-section">
-          <img class="mySlides center" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider2.jpg" style="width:80%">
-          <img class="mySlides center" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider3.jpg " style="width:80%">
-          <img class="mySlides center" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider2.jpg " style="width:80%">
+        <!-- <div class="w3-section">
+          <img class="mySlides center custom-image" src="<?php echo base_url() ?>image/slide1.jpg" style="width:80%">
+          <img class="mySlides center custom-image" src="<?php echo base_url() ?>image/slide2.jpg" style="width:80%">
+          <img class="mySlides center custom-image" src="<?php echo base_url() ?>image/slide3.jpg" style="width:80%">
           <img class="mySlides center" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider3.jpg " style="width:80%">
           <div class="w3-center w3-container w3-section w3-large w3-text-white" style="width:100%">
             <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
@@ -15,7 +16,72 @@ require "connect.php";
             <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
             <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
           </div>
+        </div> -->
+      <div class="slider-wrapper relative " id="slider-10074969">
+        <div class="slider slider-nav-dots-simple slider-nav-circle slider-nav-normal slider-nav-light slider-style-normal flickity-enabled is-draggable slider-lazy-load-active" data-flickity-options="{
+                  &quot;cellAlign&quot;: &quot;center&quot;,
+                  &quot;imagesLoaded&quot;: true,
+                  &quot;lazyLoad&quot;: 1,
+                  &quot;freeScroll&quot;: false,
+                  &quot;wrapAround&quot;: true,
+                  &quot;autoPlay&quot;: 4000,
+                  &quot;pauseAutoPlayOnHover&quot; : true,
+                  &quot;prevNextButtons&quot;: true,
+                  &quot;contain&quot; : true,
+                  &quot;adaptiveHeight&quot; : true,
+                  &quot;dragThreshold&quot; : 5,
+                  &quot;percentPosition&quot;: true,
+                  &quot;pageDots&quot;: true,
+                  &quot;rightToLeft&quot;: false,
+                  &quot;draggable&quot;: true,
+                  &quot;selectedAttraction&quot;: 0.1,
+                  &quot;parallax&quot; : 0,
+                  &quot;friction&quot;: 0.6        }" tabindex="0">
+          <div class="flickity-viewport" style="height: 627.984px; touch-action: pan-y;">
+            <div class="flickity-slider" style="left: 0px; transform: translateX(-100%);">
+              <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1822923203" aria-selected="false" style="position: absolute; left: 0%;">
+                <div class="img-inner image-cover dark" style="padding-top:33%;">
+                  <img width="1366" height="463" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider2.jpg" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider2.jpg 1366w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider2-300x102.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider2-768x260.jpg 768w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider2-1024x347.jpg 1024w" sizes="(max-width: 1366px) 100vw, 1366px">
+                  <div class="caption">Các sinh viên Việt Nam du học tại Nhật Bản luôn năng động, học tập và làm việc hết mình. Đạt được nhiều thành tích cao cũng như học bổng tại các trường đại học</div>
+                </div>
+                <style scope="scope">
+                  #image_1822923203 {
+                    width: 100%;
+                  }
+                </style>
+              </div>
+              <div class="img has-hover x md-x lg-x y md-y lg-y is-selected" id="image_1130627871" aria-selected="true" style="position: absolute; left: 100%;">
+                <div class="img-inner image-cover dark" style="padding-top:33%;">
+                  <img width="1366" height="463" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider3.jpg" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider3.jpg 1366w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider3-300x102.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider3-768x260.jpg 768w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/slider3-1024x347.jpg 1024w" sizes="(max-width: 1366px) 100vw, 1366px">
+                  <div class="caption">Nhật Bản là thị trường có tiềm năng rất lớn cho lao động Việt Nam, doanh nghiệp Nhật Bản luôn mở cửa chào đón những lao động Việt Nam chăm chỉ, có tay nghề, có ý chí phấn đấu vươn lên</div>
+                </div>
+                <style scope="scope">
+                  #image_1130627871 {
+                    width: 100%;
+                  }
+                </style>
+              </div>
+            </div>
+          </div>
+          <button class="flickity-button flickity-prev-next-button previous" type="button" aria-label="Previous">
+            <svg class="flickity-button-icon" viewBox="0 0 100 100">
+              <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path>
+            </svg>
+          </button>
+          <button class="flickity-button flickity-prev-next-button next" type="button" aria-label="Next">
+            <svg class="flickity-button-icon" viewBox="0 0 100 100">
+              <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path>
+            </svg>
+          </button>
+          <ol class="flickity-page-dots">
+            <li class="dot" aria-label="Page dot 1"></li>
+            <li class="dot is-selected" aria-label="Page dot 2" aria-current="step"></li>
+          </ol>
         </div>
+        <div class="loading-spin dark large centered" style="display: none;"></div>
+        <style scope="scope"></style>
+      </div>
+        
 
     <!-- .ux-slider-wrapper -->
     <section class="section tin-moi" id="section_1764246928">

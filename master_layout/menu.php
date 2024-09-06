@@ -13,7 +13,7 @@
         <div class="flex-row container">
           <div class="flex-col hide-for-medium flex-left">
             <ul class="nav nav-left medium-nav-center nav-small  nav-divided">
-              <li class="html custom html_topbar_left">Chào mừng bạn đến website Xuất khẩu lao động P-Techno</li>          
+              <li class="html custom html_topbar_left">Chào mừng bạn đến Website Công ty TNHH Jin Sung Press</li>          
             </ul>
           </div><!-- flex-col left -->
 
@@ -48,7 +48,7 @@
 
             <div class="flex-col show-for-medium flex-grow">
               <ul class="nav nav-center nav-small mobile-nav  nav-divided">
-                <li class="html custom html_topbar_left">Chào mừng bạn đến website Xuất khẩu lao động P-Techno</li>          
+                <li class="html custom html_topbar_left">Chào mừng bạn đến Website Jin Sung Press</li>          
               </ul>
             </div>
       
@@ -62,7 +62,7 @@
           <div id="logo" class="flex-col logo">
             <!-- Header logo -->
             <a href="index.php" title="xkld2" rel="home">
-            <img width="218" height="90" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/logo.png" class="header_logo header-logo" alt="xkld2"><img width="218" height="90" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/logo.png" class="header-logo-dark" alt="xkld2"></a>
+            <img class="logo" src="<?php echo base_url() ?>image/logo.jpg" class="header_logo header-logo" alt="xkld2"><img width="218" height="90" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/logo.png" class="header-logo-dark" alt="xkld2"></a>
           </div>
 
           <!-- Mobile Left Elements -->
@@ -84,7 +84,13 @@
                 <div class="header-block-block-1">	
                   <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_286497902">
                     <div class="img-inner dark">
-                      <img width="523" height="78" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/HEADER.png" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/HEADER.png 523w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/HEADER-300x45.png 300w" sizes="(max-width: 523px) 100vw, 523px">						
+                      <img width="523" height="78" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/HEADER.png" 
+                          class="attachment-original size-original" 
+                          alt="" 
+                          decoding="async" 
+                          loading="lazy" 
+                          srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/HEADER.png 523w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/HEADER-300x45.png 300w" 
+                          sizes="(max-width: 523px) 100vw, 523px">						
                     </div>
 								
                     <style scope="scope">

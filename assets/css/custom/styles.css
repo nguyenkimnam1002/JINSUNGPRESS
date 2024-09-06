@@ -200,3 +200,9 @@ button:focus, input:focus, textarea:focus {
 	display: block;
 	content: '';
 }  
+
+.custom-image {
+	width: 1163px !important;
+	height: 463px !important;
+	object-fit: cover;
+}

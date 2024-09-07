@@ -1790,7 +1790,25 @@ require "connect.php";
             flex-grow">
                 <ul class="header-nav header-nav-main nav nav-left  nav-size-medium nav-spacing-medium">
                   <li class="header-block">
-                    <div class="header-block-block-1">
+                    <div class="title" style="text-align: center">
+                        <p style="
+                                  display: inline;
+                                  font-size: 25px;
+                                  text-transform: uppercase;
+                                  font-family: &quot;Roboto&quot;, sans-serif; 
+                                  text-align: center;
+                                  font-weight: 700;    
+                                  color: #003082;">Công ty TNHH Jin Sung Press <br></p>
+                        <p style="
+                                  display: inline;
+                                  font-size: 25px;
+                                  text-transform: uppercase;
+                                  font-family: &quot;Roboto&quot;, sans-serif; 
+                                  text-align: center;
+                                  font-weight: 700;    
+                                  color: #f7921e;">(진성프레스 )</p>
+                    </div>
+                    <!-- <div class="header-block-block-1">
                       <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1499331167">
                         <div class="img-inner dark">
                           <img width="523" height="78" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/HEADER.png" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/HEADER.png 523w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/HEADER-300x45.png 300w" sizes="(max-width: 523px) 100vw, 523px" />
@@ -1801,7 +1819,7 @@ require "connect.php";
                           }
                         </style>
                       </div>
-                    </div>
+                    </div> -->
                   </li>
                 </ul>
               </div>
@@ -1904,7 +1922,7 @@ require "connect.php";
                     <a href="https://demo.tamnguyen.vn/xkld2/category/tin-tuc/" class="nav-top-link">Tin tức</a>
                   </li>
                   <li id="menu-item-343" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-343">
-                    <a href="https://demo.tamnguyen.vn/xkld2/category/thac-mac-giai-dap/" class="nav-top-link">Thắc mắc &#8211;giải đáp</a>
+                    <a href="#" class="nav-top-link">Thắc mắc &#8211;giải đáp</a>
                   </li>
                   <li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-45">
                     <a href="https://demo.tamnguyen.vn/xkld2/lien-he/" class="nav-top-link">Liên hệ</a>

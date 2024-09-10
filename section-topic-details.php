@@ -1,11 +1,10 @@
-<?php include_once('./master_layout/header.php');
-  require "connect.php";
- ?>
+<?php include_once('./master_layout/header.php') ;
+require "connect.php";
+?>
 <!-- sticky header end -->
 <div class="container">
-  <div class="page-header">
-    <?php
-
+    
+  <?php
     if (isset($_GET['id'])) {
       $id = $_GET['id'];
       $sql = "SELECT name FROM categories WHERE id ='$id'";
@@ -13,15 +12,6 @@
       $row = mysqli_fetch_assoc($result);
 
     ?>
-      <h1><?php echo $row['name'] ?></h1>
-      <ol class="breadcrumb">
-        <li><a href="index.php">Trang chủ</a></li>
-
-
-        <li class="active"><?php echo $row['name'] ?></li>
-      </ol>
-
-  </div>
 
   <div class="row">
     <div class="ind">

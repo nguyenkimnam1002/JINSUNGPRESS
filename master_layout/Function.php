@@ -178,6 +178,21 @@
         return formatPrice($price);
     }
 
+    function catChuoiCoNghia($string, $limit = 100) {
+        if (strlen($string) <= $limit) {
+            return $string;
+        }
+        
+        // Cắt chuỗi theo giới hạn
+        $cutString = substr($string, 0, $limit);
+    
+        // Tìm vị trí của khoảng trắng cuối cùng
+        $lastSpace = strrpos($cutString, ' ');
+    
+        // Cắt chuỗi tại vị trí khoảng trắng cuối cùng
+        return substr($cutString, 0, $lastSpace) . '...';
+    }
+
 
  ?>
 

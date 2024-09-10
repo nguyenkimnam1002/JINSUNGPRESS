@@ -1,20 +1,23 @@
 <?php
-require('./../connect.php'); ?>
+require('./../connect.php'); 
+include_once('./../master_layout/Function.php') ;?>
 
 <?php
     // $sql = "SELECT *FROM posts inner join account on posts.user_id=account.id";
     // $sql = "SELECT *FROM posts inner join categories on posts.category_id=categories.id";
     $sql_category= "SELECT * FROM categories";
     $sql_post = "SELECT * FROM posts";
+    $sql_account = "SELECT * FROM accounts";
 
     
     $query_category = mysqli_query($conn, $sql_category);
+    $query_account = mysqli_query($conn, $sql_account);
     if(isset($_POST['sbm'])){
         $title = $_POST['title'];
         $slug = $_POST['slug'];
         
-        $image = $_FILES['image']['name'];
-        $image_tmp = $_FILES['image']['tmp_name'];
+        $image = $_FILES["fileToUpload"]["name"];
+        // $image_tmp = $_FILES['image']['tmp_name'];
 
         
         $content = $_POST['content'];
@@ -28,17 +31,26 @@ require('./../connect.php'); ?>
         $status = $_POST['status'];
 
         $sql = "INSERT INTO posts (title, slug, image, content, category_id, accounts_id, status) VALUES ('$title', '$slug', '$image', '$content','$category_id','$accounts_id', '$status')";
-       if (mysqli_query($conn, $sql))
-       //Thông báo nếu thành công
-       {
-        echo 'Thêm thành công';
-        header("location: ds_tintuc.php");
-       }
-        else 
+        if (mysqli_query($conn, $sql))
+        //Thông báo nếu thành công
+        {
+            echo 'Thêm thành công';
+            $target_dir = "./../image/";
+            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+
+            // Kiểm tra nếu tệp đã được tải lên thành công
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                echo "Tệp " . basename($_FILES["fileToUpload"]["name"]) . " đã được tải lên thành công.";
+            } else {
+                echo "Có lỗi xảy ra khi tải lên tệp.";
+            }
+            header("location: ds_tintuc.php");
+        }
+        else {
         //Hiện thông báo khi không thành công
         echo 'Không thành công. Lỗi' . mysqli_error($conn);
-            move_uploaded_file($image_tmp, '../image/'.$image);
         }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +85,7 @@ require('./../connect.php'); ?>
     
                     <div class="form-group">
                         <label for="">Ảnh bài viết</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="fileToUpload" class="form-control">
                     </div>
     
                     <div class="form-group">
@@ -97,8 +109,13 @@ require('./../connect.php'); ?>
                     </div>
     
                     <div class="form-group">
-                        <label for="">Người viết</label>
-                        <input type="text" name="accounts_id" class="form-control" require>
+                        <label for="">Người viết (*)</label>
+                        <!-- <input type="text" name="accounts_id" class="form-control"> -->
+                        <select name="accounts_id" id="accounts_id" require>
+                            <?php while ($row = mysqli_fetch_assoc($query_account)):?>
+                                <option value=<?php echo $row['id'];?>> <?php echo $row['fullname'];?></option>
+                            <?php endwhile;?>
+                        </select>
                     </div>
                     
                     <button name= "sbm" class="btn btn-success">Thêm</button>

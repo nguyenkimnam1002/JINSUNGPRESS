@@ -1,6 +1,5 @@
-<?php  
-    include_once('./master_layout/header.php');
-    require('./connect.php');
+<?php include_once('./master_layout/header.php') ;
+require "connect.php";
 ?>
 <?php
     if(isset($_POST['content']) && isset($_POST['submit'])) {
@@ -53,7 +52,7 @@ if(isset($_GET['id']) && isset($_GET['category_id'])){
   // $r=$dt->fetch();
   ?>
   <div class="container">
-    <div class="page-header">
+    <div class="page-header" style = "margin-left: 100px;">
       <h1><?php echo $rn['title']?></h1>
     </div>
     
@@ -67,9 +66,10 @@ if(isset($_GET['id']) && isset($_GET['category_id'])){
       </div>
       <div id="news_more">
         <h4><?php echo "<a>||</a>Tin liên quan"; ?></h4></br>
-      <ul>
-         <li><?php echo"<a href='post-item-details.php?category_id=$category_id&id=$id'>$title</a>"?></li>
-      </ul>
+        <ul>
+          <li><?php echo"<a href='post-item-details.php?category_id=$category_id&id=$id'>$title</a>"?></li>
+        </ul>
+      </div>
     </div>  
     <div class="well">
       <h4>Viết bình luận...</h4></br>
@@ -98,10 +98,7 @@ if(isset($_GET['id']) && isset($_GET['category_id'])){
   <!-- bage header End --> 
 
   <!-- Footer Start -->
-  <?php
-  
-  include_once('./master_layout/footer.php') 
-?>
+  <?php include_once('./master_layout/footer.php') ?>
 <style>
   #news{
     width: 670px;

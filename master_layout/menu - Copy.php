@@ -159,7 +159,7 @@
                   while ($row = mysqli_fetch_array($result)) {
                     $id = $row['id'];
                     $name = $row['name'];
-                    echo "<li class='menu-item menu-item-type-taxonomy menu-item-object-category menu-item-51'><a href ='section-topic-details.php?id=$id'>$name</a></li>";
+                    echo "<li class='menu-item menu-item-type-taxonomy menu-item-object-category menu-item-51'><a href ='section-topic-tintuc.php?id=$id'>$name</a></li>";
      
                   ?>
                   <?php

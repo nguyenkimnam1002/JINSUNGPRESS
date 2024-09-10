@@ -5,7 +5,7 @@ require('./../connect.php'); ?>
 
 <?php
   $search = "";
-  $limit = 2;
+  $limit = 5;
   $page = 1;
   if(isset($_REQUEST['p']) && (int)$_REQUEST['p'] >= 1) {
     $page = (int) $_REQUEST['p'];
@@ -50,7 +50,7 @@ require('./../connect.php'); ?>
   <td><?php echo $row['id']; ?></td>
   <td><?php echo $row['title']; ?></td>
   <td><a href="<?php echo $row['slug']; ?>"><?php echo $row['slug']; ?></a></td>
-  <td><?php echo '<img  src='.$row['image'].' width=170px;/>'; ?></td>
+  <td><?php echo '<img  src=./../image/'.$row['image'].' width=170px;/>'; ?></td>
   <td><a href="<?php echo $row['content']; ?>"><?php echo $row['content']; ?></a></td>
   <td><?php echo $row['created_at']; ?></td>
   <td><?php echo $row['updated_at']; ?></td>

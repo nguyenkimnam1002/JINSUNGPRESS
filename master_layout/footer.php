@@ -2,42 +2,34 @@
     // require_once(realpath(dirname(__FILE__) .'./content_footer.php'));
     include_once('./master_layout/content_footer.php');
 ?>
-<!-- jQuery --> 
- 
-<script src="./assets/js/custom/slideshow.js"></script>
-
-<!-- <script src="./assets/js/custom/flatsome.js"></script>
-  <script src="./assets/js/custom/flatsome-lazy.js"></script> -->
-<script src="./assets/js/jquery.min.js"></script> 
-<!--jQuery easing--> 
-<script src="./assets/js/jquery.easing.1.3.js"></script> 
-<!-- bootstrab js --> 
-<script src="./assets/js/bootstrap.js"></script> 
-<!--style switcher--> 
-<script src="./assets/js/style-switcher.js"></script> <!--wow animation--> 
-<script src="./assets/js/wow.min.js"></script> 
-<!-- time and date --> 
-<script src="./assets/js/moment.min.js"></script> 
-<!--news ticker--> 
-<script src="./assets/js/jquery.ticker.js"></script> 
-<!-- owl carousel --> 
-<script src="./assets/js/owl.carousel.js"></script> 
-<!-- magnific popup --> 
-<script src="./assets/js/jquery.magnific-popup.js"></script> 
-<!-- weather --> 
-<script src="./assets/js/jquery.simpleWeather.min.js"></script> 
-<!-- calendar--> 
-<script src="./assets/js/jquery.pickmeup.js"></script> 
-<!-- go to top --> 
-<script src="./assets/js/jquery.scrollUp.js"></script> 
-<!-- scroll bar --> 
-<script src="./assets/js/jquery.nicescroll.js"></script> 
-<script src="./assets/js/jquery.nicescroll.plus.js"></script> 
-<!--masonry--> 
-<script src="./assets/js/masonry.pkgd.js"></script> 
-<!--media queries to js--> 
-<script src="./assets/js/enquire.js"></script> 
-<!--custom functions--> 
-<script src="./assets/js/custom-fun.js"></script>
-</body>
+    <script type='text/javascript' src='<?php echo base_url() ?>wp-content/plugins/contact-form-7/includes/swv/js/index.js' id='swv-js'></script>
+    <script type='text/javascript' id='contact-form-7-js-extra'>
+      /* 
+						<![CDATA[ */
+      var wpcf7 = {
+        "api": {
+          "root": "https:\/\/demo.tamnguyen.vn\/xkld2\/wp-json\/",
+          "namespace": "contact-form-7\/v1"
+        }
+      };
+      /* ]]> */
+    </script>
+    <script type='text/javascript' src='<?php echo base_url() ?>wp-content/plugins/contact-form-7/includes/js/index.js' id='contact-form-7-js'></script>
+    <script type='text/javascript' src='<?php echo base_url() ?>wp-includes/js/hoverIntent.min.js' id='hoverIntent-js'></script>
+    <script type='text/javascript' id='flatsome-js-js-extra'>
+      /* 
+						<![CDATA[ */
+      var flatsomeVars = {
+        "ajaxurl": "https:\/\/demo.tamnguyen.vn\/xkld2\/wp-admin\/admin-ajax.php",
+        "rtl": "",
+        "sticky_height": "70",
+        "user": {
+          "can_edit_pages": false
+        }
+      };
+      /* ]]> */
+    </script>
+    <script type='text/javascript' src='<?php echo base_url() ?>wp-content/themes/flatsome/assets/js/flatsome.js' id='flatsome-js-js'></script>
+    <script type='text/javascript' src='<?php echo base_url() ?>wp-content/themes/flatsome/inc/extensions/flatsome-lazy-load/flatsome-lazy-load.js' id='flatsome-lazy-js'></script>
+  </body>
 </html>

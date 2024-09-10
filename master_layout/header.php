@@ -1835,9 +1835,9 @@ require "connect.php";
                         </a>
                       </li>
                       <li class="">
-                        <a href="tel:0984211930" class="tooltip" title="0984211930">
+                        <a href="tel:0848172333" class="tooltip" title="0848172333">
                           <i class="fa fa-phone icon1" style="font-size:30px;"></i>
-                          <span>0984211930</span>
+                          <span>0848172333</span>
                         </a>
                       </li>
                     </ul>
@@ -1851,120 +1851,10 @@ require "connect.php";
             </div>
             <!-- .header-inner -->
           </div>
-          <!-- .header-main -->
-          <div id="wide-nav" class="header-bottom wide-nav nav-dark hide-for-medium">
-            <div class="flex-row container">
-              <div class="flex-col hide-for-medium flex-left">
-                <ul class="nav header-nav header-bottom-nav nav-left  nav-size-medium nav-spacing-xlarge">
-                  <li id="menu-item-47" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item active  menu-item-47">
-                    <a href="<?php echo base_url() ?>" class="nav-top-link">Trang chủ</a>
-                  </li>
-                  <li id="menu-item-845" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-845 has-dropdown">
-                    <a href="<?php echo base_url() ?>gioi-thieu/" class="nav-top-link"> Giới thiệu <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class='nav-dropdown nav-dropdown-default'>
-                      <li id="menu-item-848" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-848">
-                        <a href="<?php echo base_url() ?>gioi-thieu-chung/">Giới thiệu chung</a>
-                      </li>
-                      <li id="menu-item-849" class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-849">
-                        <a href="https://demo.tamnguyen.vn/xkld2/gioi-thieu-chung/">Giới thiệu công ty</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li id="menu-item-546" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children  menu-item-546 has-dropdown">
-                    <a href="#" class="nav-top-link"> Dịch vụ <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class='nav-dropdown nav-dropdown-default'>
-                      <li id="menu-item-625" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-625 nav-dropdown-col">
-                        <a href="https://demo.tamnguyen.vn/xkld2/phai-cu-ky-su-di-nhat/">Phái cử kỹ sư đi Nhật</a>
-                        <ul class='nav-column nav-dropdown-default'>
-                          <li id="menu-item-616" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-616">
-                            <a href="https://demo.tamnguyen.vn/xkld2/phai-cu-ky-su-di-nhat/gioi-thieu-hoat-dong-phai-cu-ky-su-di-nhat/">Giới thiệu hoạt động phái cử kỹ sư</a>
-                          </li>
-                          <li id="menu-item-615" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-615">
-                            <a href="https://demo.tamnguyen.vn/xkld2/phai-cu-ky-su-di-nhat/quy-trinh-gioi-thieu/">Quy trình giới thiệu</a>
-                          </li>
-                          <li id="menu-item-614" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-614">
-                            <a href="https://demo.tamnguyen.vn/xkld2/phai-cu-ky-su-di-nhat/cac-nganh-nghe-gioi-thieu/">Các ngành nghề giới thiệu</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li id="menu-item-628" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-628">
-                        <a href="https://demo.tamnguyen.vn/xkld2/nhan-thiet-ke-khuon/">Nhận thiết kế khuôn</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-682 has-dropdown">
-                    <a href="https://demo.tamnguyen.vn/xkld2/tuyen-dung/" class="nav-top-link"> Thông tin tuyển dụng <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class='nav-dropdown nav-dropdown-default'>
-                      <li id="menu-item-779" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-779">
-                        <a href="https://demo.tamnguyen.vn/xkld2/category/tuyen-dung/ky-su-o-to/">Kỹ sư ô tô</a>
-                      </li>
-                      <li id="menu-item-778" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-778">
-                        <a href="https://demo.tamnguyen.vn/xkld2/category/tuyen-dung/ky-su-it/">Kỹ sư IT</a>
-                      </li>
-                      <li id="menu-item-777" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-777">
-                        <a href="https://demo.tamnguyen.vn/xkld2/category/tuyen-dung/ky-su-dien-dien-tu/">Kỹ sư điện &#8211;điện tử</a>
-                      </li>
-                      <li id="menu-item-776" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-776">
-                        <a href="https://demo.tamnguyen.vn/xkld2/category/tuyen-dung/ky-su-co-khi/">Kỹ sư cơ khí</a>
-                      </li>
-                      <li id="menu-item-780" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-780">
-                        <a href="https://demo.tamnguyen.vn/xkld2/category/tuyen-dung/ky-su-xay-dung/">Kỹ sư xây dựng</a>
-                      </li>
-                      <li id="menu-item-775" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-775">
-                        <a href="https://demo.tamnguyen.vn/xkld2/category/tuyen-dung/ky-su-chuyen-nganh-khac/">Kỹ sư chuyên ngành khác</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li id="menu-item-51" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-51">
-                    <a href="https://demo.tamnguyen.vn/xkld2/category/tin-tuc/" class="nav-top-link">Tin tức</a>
-                  </li>
-                  <li id="menu-item-343" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-343">
-                    <a href="#" class="nav-top-link">Thắc mắc &#8211;giải đáp</a>
-                  </li>
-                  <li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-45">
-                    <a href="https://demo.tamnguyen.vn/xkld2/lien-he/" class="nav-top-link">Liên hệ</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- flex-col -->
-              <div class="flex-col hide-for-medium flex-right flex-grow">
-                <ul class="nav header-nav header-bottom-nav nav-right  nav-size-medium nav-spacing-xlarge">
-                  <li class="header-search-form search-form html relative has-icon">
-                    <div class="header-search-form-wrapper">
-                      <div class="searchform-wrapper ux-search-box relative form- is-normal">
-                        <form method="get" class="searchform" action="<?php echo base_url() ?>" role="search">
-                          <div class="flex-row relative">
-                            <div class="flex-col flex-grow">
-                              <input type="search" class="search-field mb-0" name="s" value="" id="s" placeholder="Nhập từ khóa tìm kiếm..." />
-                            </div>
-                            <!-- .flex-col -->
-                            <div class="flex-col">
-                              <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0">
-                                <i class="fa fa-search"></i>
-                              </button>
-                            </div>
-                            <!-- .flex-col -->
-                          </div>
-                          <!-- .flex-row -->
-                          <div class="live-search-results text-left z-top"></div>
-                        </form>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <!-- flex-col -->
-            </div>
-            <!-- .flex-row -->
-          </div>
-          <!-- .header-bottom -->
-          <div class="header-bg-container fill">
-            <div class="header-bg-image fill"></div>
-            <div class="header-bg-color fill"></div>
-          </div>
+          <?php 
+            // require_once(realpath(dirname(__FILE__) . "./menu.php")); 
+            include_once('./master_layout/menu.php');
+            ?>
           <!-- .header-bg-container -->
         </div>
         <!-- header-wrapper-->

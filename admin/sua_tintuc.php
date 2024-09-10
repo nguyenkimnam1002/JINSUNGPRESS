@@ -1,5 +1,7 @@
 <?php
-require('./../connect.php'); ?>
+require('./../connect.php'); 
+include_once('./../master_layout/Function.php') ;
+?>
 <?php
     $id = $_GET['id'];
 
@@ -9,6 +11,10 @@ require('./../connect.php'); ?>
     $sql_post = "SELECT * FROM posts";
 
     $sql_up = "SELECT * FROM posts WHERE id = $id";
+    $sql_account = "SELECT * FROM accounts";
+
+    
+    $query_account = mysqli_query($conn, $sql_account);
     $query_up = mysqli_query($conn, $sql_up);
     $row_up = mysqli_fetch_assoc($query_up);
     if(!$row_up){
@@ -21,10 +27,17 @@ require('./../connect.php'); ?>
         $title = $_POST['title'];
         $slug = $_POST['slug'];
         
-        $image = $_FILES['image']['name'];
-        $image_tmp = $_FILES['image']['tmp_name'];
-        if(!empty($image_tmp)){
-            move_uploaded_file($image_tmp, '../../image/'.$image);
+        $image = $_FILES["fileToUpload"]["name"];
+        // $image_tmp = $_FILES['image']['tmp_name'];
+
+        $target_dir = "./../image/";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+
+        // Kiểm tra nếu tệp đã được tải lên thành công
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            echo "Tệp " . basename($_FILES["fileToUpload"]["name"]) . " đã được tải lên thành công.";
+        } else {
+            echo "Có lỗi xảy ra khi tải lên tệp.";
         }
 
         
@@ -79,8 +92,12 @@ require('./../connect.php'); ?>
     
                     <div class="form-group">
                         <label for="">Ảnh bài viết</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="fileToUpload" class="form-control">
                     </div>
+                    <!-- <form action="" method="post" enctype="multipart/form-data">
+                        Ảnh bài viết:
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                    </form> -->
     
                     <div class="form-group">
                         <label for="">Nội dung</label>
@@ -103,8 +120,14 @@ require('./../connect.php'); ?>
                     </div>
     
                     <div class="form-group">
-                        <label for="">Người viết</label>
-                        <input type="text" name="accounts_id" class="form-control" require value="<?php echo $row_up['accounts_id'] ?>">
+                        <label for="">Người viết(*)</label>
+                        <!-- <input type="text" name="accounts_id" class="form-control" require value="<?php echo $row_up['accounts_id'] ?>"> -->
+                        
+                        <select name="accounts_id" id="accounts_id" require>
+                            <?php while ($row = mysqli_fetch_assoc($query_account)):?>
+                                <option value=<?php echo $row['id'];?>> <?php echo $row['fullname'];?></option>
+                            <?php endwhile;?>
+                        </select>
                     </div>
                     
                     <button name= "sbm" class="btn btn-success">Sửa</button>

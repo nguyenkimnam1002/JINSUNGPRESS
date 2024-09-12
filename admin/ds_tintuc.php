@@ -5,7 +5,7 @@ require('./../connect.php'); ?>
 
 <?php
   $search = "";
-  $limit = 5;
+  $limit = 3;
   $page = 1;
   if(isset($_REQUEST['p']) && (int)$_REQUEST['p'] >= 1) {
     $page = (int) $_REQUEST['p'];

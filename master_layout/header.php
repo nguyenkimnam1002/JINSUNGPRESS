@@ -486,8 +486,8 @@ require "connect.php";
         s.parentNode.insertBefore(wf, s);
       })();
     </script>
-    <link rel="icon" href="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/cropped-logo-p-techno-32x32.png" sizes="32x32" />
-    <link rel="icon" href="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/cropped-logo-p-techno-192x192.png" sizes="192x192" />
+    <link rel="icon" href="<?php echo base_url() ?>image/title_icon.png" sizes="32x32" />
+    <link rel="icon" href="<?php echo base_url() ?>image/title_icon.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/cropped-logo-p-techno-180x180.png" />
     <meta name="msapplication-TileImage" content="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/cropped-logo-p-techno-270x270.png" />
     <style id="custom-css" type="text/css">
@@ -1749,10 +1749,10 @@ require "connect.php";
                   <li class="html header-social-icons ml-0">
                     <div class="social-icons follow-icons ">
                       <a href="http://url" target="_blank" data-label="Facebook" rel="noopener noreferrer nofollow" class="icon plain facebook tooltip" title="Follow on Facebook">
-                        <i class="fa fa-facebook"></i>
+                        <i class="fa fa-facebook-square"></i>
                       </a>
                       <a href="http://url" target="_blank" rel="noopener noreferrer nofollow" data-label="Instagram" class="icon plain  instagram tooltip" title="Follow on Instagram">
-                        <i class="fa fa-instagram"></i>
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
                       </a>
                       <a href="http://url" target="_blank" data-label="Twitter" rel="noopener noreferrer nofollow" class="icon plain  twitter tooltip" title="Follow on Twitter">
                         <i class="fa fa-twitter"></i>
@@ -1844,9 +1844,9 @@ require "connect.php";
                         </a>
                       </li>
                       <li class="">
-                        <a href="tel:0848172333" class="tooltip" title="0848172333">
+                        <a href="tel:0848172xxxx" class="tooltip" title="0848172xxxx">
                           <i class="fa fa-phone icon1" style="font-size:30px;"></i>
-                          <span>0848172333</span>
+                          <span>0848172xxxx</span>
                         </a>
                       </li>
                     </ul>

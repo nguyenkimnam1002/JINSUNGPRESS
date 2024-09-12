@@ -1,5 +1,16 @@
 <?php include_once('./master_layout/header.php') ;
 require "connect.php";
+// Post tuyển dụng
+$sql_TuyenDung = "SELECT * FROM posts WHERE category_id = 3 ORDER BY ID DESC LIMIT 6";
+$tuyenDung = $db->fetchsql($sql_TuyenDung);
+
+// Post thắc mắc giải đáp
+$sql_thacMac = "SELECT * FROM posts WHERE category_id = 5 ORDER BY ID DESC LIMIT 5";
+$thacMac = $db->fetchsql($sql_thacMac);
+
+// Post dịch vụ
+$sql_dichVu = "SELECT * FROM posts WHERE category_id = 1 ORDER BY ID DESC LIMIT 6";
+$dichVu = $db->fetchsql($sql_dichVu);
 ?>
       <main id="main" class="">
         <div id="content" role="main" class="content-area">
@@ -63,20 +74,21 @@ require "connect.php";
               </div>
               <!-- .section-title -->
               <div class="row large-columns-4 medium-columns- small-columns-2 slider row-slider slider-nav-circle slider-nav-outside slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": true, "rightToLeft": false, "autoPlay" : 2000}'>
+                <?php foreach($tuyenDung as $item) :?>
                 <div class="page-col col">
                   <div class="col-inner">
-                    <a class="plain" href="https://demo.tamnguyen.vn/xkld2/tuyen-dung/thong-tin-tuyen-dung-khac/" title="Thông tin tuyển dụng khác" target="">
+                    <a class="plain" href="post-item-details.php?category_id=3&id=<?php echo $item['id']?>" title="<?php echo $item['title'] ?>" target="">
                       <div class="page-box box has-hover">
                         <div class="box-image">
                           <div class="box-image image-zoom image-cover" style="padding-top:70%;">
-                            <img width="400" height="256" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tuyen-dung.jpg" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tuyen-dung.jpg 400w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tuyen-dung-300x192.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />
+                            <img width="400" height="256" src="<?php echo base_url() ?>image/<?php echo $item['image']?>" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="<?php echo base_url() ?>image/<?php echo $item['image']?> 400w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tuyen-dung-300x192.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />
                           </div>
                           <!-- image -->
                         </div>
                         <!-- box-image -->
                         <div class="box-text text-center dark" style="background-color:rgb(0, 38, 127);">
                           <div class="box-text-inner">
-                            <p>Thông tin tuyển dụng khác</p>
+                            <p><?php echo $item['title'] ?></p>
                           </div>
                           <!-- box-text-inner -->
                         </div>
@@ -87,131 +99,7 @@ require "connect.php";
                   </div>
                   <!-- .col-inner -->
                 </div>
-                <!-- .col -->
-                <div class="page-col col">
-                  <div class="col-inner">
-                    <a class="plain" href="https://demo.tamnguyen.vn/xkld2/tuyen-dung/tuyen-ky-su-co-khi/" title="Tuyển kỹ sư cơ khí" target="">
-                      <div class="page-box box has-hover">
-                        <div class="box-image">
-                          <div class="box-image image-zoom image-cover" style="padding-top:70%;">
-                            <img width="400" height="256" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-co-khi.jpg" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-co-khi.jpg 400w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-co-khi-300x192.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />
-                          </div>
-                          <!-- image -->
-                        </div>
-                        <!-- box-image -->
-                        <div class="box-text text-center dark" style="background-color:rgb(0, 38, 127);">
-                          <div class="box-text-inner">
-                            <p>Tuyển kỹ sư cơ khí</p>
-                          </div>
-                          <!-- box-text-inner -->
-                        </div>
-                        <!-- box-text -->
-                      </div>
-                      <!-- .image-box .box -->
-                    </a>
-                  </div>
-                  <!-- .col-inner -->
-                </div>
-                <!-- .col -->
-                <div class="page-col col">
-                  <div class="col-inner">
-                    <a class="plain" href="https://demo.tamnguyen.vn/xkld2/tuyen-dung/tuyen-ky-su-dien-dien-tu/" title="Tuyển kỹ sư điện, điện tử" target="">
-                      <div class="page-box box has-hover">
-                        <div class="box-image">
-                          <div class="box-image image-zoom image-cover" style="padding-top:70%;">
-                            <img width="400" height="256" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-dien.jpg" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-dien.jpg 400w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-dien-300x192.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />
-                          </div>
-                          <!-- image -->
-                        </div>
-                        <!-- box-image -->
-                        <div class="box-text text-center dark" style="background-color:rgb(0, 38, 127);">
-                          <div class="box-text-inner">
-                            <p>Tuyển kỹ sư điện, điện tử</p>
-                          </div>
-                          <!-- box-text-inner -->
-                        </div>
-                        <!-- box-text -->
-                      </div>
-                      <!-- .image-box .box -->
-                    </a>
-                  </div>
-                  <!-- .col-inner -->
-                </div>
-                <!-- .col -->
-                <div class="page-col col">
-                  <div class="col-inner">
-                    <a class="plain" href="https://demo.tamnguyen.vn/xkld2/tuyen-dung/tuyen-ky-su-it/" title="Tuyển kỹ sư IT" target="">
-                      <div class="page-box box has-hover">
-                        <div class="box-image">
-                          <div class="box-image image-zoom image-cover" style="padding-top:70%;">
-                            <img width="400" height="256" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-it.jpg" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-it.jpg 400w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-it-300x192.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />
-                          </div>
-                          <!-- image -->
-                        </div>
-                        <!-- box-image -->
-                        <div class="box-text text-center dark" style="background-color:rgb(0, 38, 127);">
-                          <div class="box-text-inner">
-                            <p>Tuyển kỹ sư IT</p>
-                          </div>
-                          <!-- box-text-inner -->
-                        </div>
-                        <!-- box-text -->
-                      </div>
-                      <!-- .image-box .box -->
-                    </a>
-                  </div>
-                  <!-- .col-inner -->
-                </div>
-                <!-- .col -->
-                <div class="page-col col">
-                  <div class="col-inner">
-                    <a class="plain" href="https://demo.tamnguyen.vn/xkld2/tuyen-dung/tuyen-ky-su-oto/" title="Tuyển kỹ sư Ôtô" target="">
-                      <div class="page-box box has-hover">
-                        <div class="box-image">
-                          <div class="box-image image-zoom image-cover" style="padding-top:70%;">
-                            <img width="400" height="256" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tuyen-ky-su-o-to.jpg" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tuyen-ky-su-o-to.jpg 400w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tuyen-ky-su-o-to-300x192.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />
-                          </div>
-                          <!-- image -->
-                        </div>
-                        <!-- box-image -->
-                        <div class="box-text text-center dark" style="background-color:rgb(0, 38, 127);">
-                          <div class="box-text-inner">
-                            <p>Tuyển kỹ sư Ôtô</p>
-                          </div>
-                          <!-- box-text-inner -->
-                        </div>
-                        <!-- box-text -->
-                      </div>
-                      <!-- .image-box .box -->
-                    </a>
-                  </div>
-                  <!-- .col-inner -->
-                </div>
-                <!-- .col -->
-                <div class="page-col col">
-                  <div class="col-inner">
-                    <a class="plain" href="https://demo.tamnguyen.vn/xkld2/tuyen-dung/tuyen-ky-su-xay-dung/" title="Tuyển kỹ sư xây dựng" target="">
-                      <div class="page-box box has-hover">
-                        <div class="box-image">
-                          <div class="box-image image-zoom image-cover" style="padding-top:70%;">
-                            <img width="400" height="256" src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-xay-dung.jpg" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-xay-dung.jpg 400w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/Tuyen-ky-su-xay-dung-300x192.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" />
-                          </div>
-                          <!-- image -->
-                        </div>
-                        <!-- box-image -->
-                        <div class="box-text text-center dark" style="background-color:rgb(0, 38, 127);">
-                          <div class="box-text-inner">
-                            <p>Tuyển kỹ sư xây dựng</p>
-                          </div>
-                          <!-- box-text-inner -->
-                        </div>
-                        <!-- box-text -->
-                      </div>
-                      <!-- .image-box .box -->
-                    </a>
-                  </div>
-                  <!-- .col-inner -->
-                </div>
+                <?php endforeach ?>
                 <!-- .col -->
               </div>
             </div>
@@ -234,17 +122,17 @@ require "connect.php";
                       <ul class="nav nav-simple nav-uppercase nav-size-normal nav-left">
                         <li class="tab active has-icon">
                           <a href="#tab_giới-thiệu-p-techno">
-                            <span>Giới thiệu P-Techno</span>
+                            <span>Giới thiệu Jinsung Press</span>
                           </a>
                         </li>
                         <li class="tab has-icon">
                           <a href="#tab_tuyển-dụng-kỹ-sư-mới-nhất">
-                            <span>Tuyển dụng kỹ sư mới nhất</span>
+                            <span>Tuyển dụng mới nhất</span>
                           </a>
                         </li>
                         <li class="tab has-icon">
-                          <a href="#tab_du-học">
-                            <span>Du học</span>
+                          <a href="#tab_dịch-vụ">
+                            <span>Dịch vụ</span>
                           </a>
                         </li>
                         <li class="tab has-icon">
@@ -283,21 +171,22 @@ require "connect.php";
                         </div>
                         <div class="panel entry-content" id="tab_tuyển-dụng-kỹ-sư-mới-nhất">
                           <div class="row large-columns-2 medium-columns-1 small-columns-1 row-small">
+                            <?php foreach($tuyenDung as $item) :?>
                             <div class="col post-item">
                               <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/top-5-cong-ty-xkld-nhat-ban-uy-tin-tai-tp-ho-chi-minh/" class="plain">
+                                <a href="post-item-details.php?category_id=3&id=<?php echo $item['id']?>" class="plain">
                                   <div class="box box-vertical box-text-middle box-blog-post has-hover">
                                     <div class="box-image" style="width:26%;">
                                       <div class="image-cover" style="padding-top:107%;">
-                                        <img width="300" height="191" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7-300x191.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7-300x191.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
+                                        <img width="300" height="191" src="<?php echo base_url() ?>image/<?php echo $item['image']?>" data-src="<?php echo base_url() ?>image/<?php echo $item['image']?>" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="<?php echo base_url() ?>image/<?php echo $item['image']?> 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
                                       </div>
                                     </div>
                                     <!-- .box-image -->
                                     <div class="box-text text-left">
                                       <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Top 5 công ty XKLĐ Nhật Bản uy tín tại TP. Hồ Chí Minh</h5>
+                                        <h5 class="post-title is-large "><?php echo $item['title'] ?></h5>
                                         <div class="is-divider"></div>
-                                        <p class="from_the_blog_excerpt ">Công ty xuất khẩu lao động Nhật Bản tại TPHCM 2018 [...] </p>
+                                        <p class="from_the_blog_excerpt "></p>
                                       </div>
                                       <!-- .box-text-inner -->
                                     </div>
@@ -309,161 +198,26 @@ require "connect.php";
                               </div>
                               <!-- .col-inner -->
                             </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/dieu-kien-di-xuat-khau-lao-dong-tai-nhat-ban-moi-nhat-2018/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:26%;">
-                                      <div class="image-cover" style="padding-top:107%;">
-                                        <img width="300" height="198" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/duc-nhua-lao-dong-nhat-ban3-300x198.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/duc-nhua-lao-dong-nhat-ban3-300x198.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/duc-nhua-lao-dong-nhat-ban3.jpg 480w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Điều kiện đi xuất khẩu lao động tại Nhật Bản mới nhất 2018</h5>
-                                        <div class="is-divider"></div>
-                                        <p class="from_the_blog_excerpt ">Điều kiện để đi xuất khẩu lao động Nhật Bản rất [...] </p>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/thu-tuc-ho-so-xuat-khau-lao-dong-sang-nhat-ban/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:26%;">
-                                      <div class="image-cover" style="padding-top:107%;">
-                                        <img width="300" height="225" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/posst5-300x225.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/posst5-300x225.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/posst5.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Thủ tục hồ sơ xuất khẩu lao động sang Nhật Bản</h5>
-                                        <div class="is-divider"></div>
-                                        <p class="from_the_blog_excerpt ">Trong các bài trước đã giới thiếu với các bạn về [...] </p>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/nghe-thuc-tap-sinh-dang-o-nhat-khuyen-lao-dong-trong-nuoc/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:26%;">
-                                      <div class="image-cover" style="padding-top:107%;">
-                                        <img width="300" height="188" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung-300x188.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung-300x188.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung.jpg 415w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Nghe thực tập sinh đang ở Nhật khuyên lao động trong nước</h5>
-                                        <div class="is-divider"></div>
-                                        <p class="from_the_blog_excerpt ">Nghe lời khuyên của những thực tập sinh đang trực tiếp [...] </p>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/quy-trinh-di-xuat-khau-lao-dong-nhat-ban-chuan/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:26%;">
-                                      <div class="image-cover" style="padding-top:107%;">
-                                        <img width="300" height="225" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12-300x225.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12-300x225.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Quy trình đi xuất khẩu lao động Nhật Bản – Chuẩn</h5>
-                                        <div class="is-divider"></div>
-                                        <p class="from_the_blog_excerpt ">Trong thời gian qua, đã có nhiều bạn đã liên tục [...] </p>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/muc-luong-xuat-khau-lao-dong-di-nhat-ban-hien-nay-bao-nhieu/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:26%;">
-                                      <div class="image-cover" style="padding-top:107%;">
-                                        <img width="300" height="176" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1-300x176.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1-300x176.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Mức lương xuất khẩu lao động đi Nhật Bản hiện nay bao nhiêu?</h5>
-                                        <div class="is-divider"></div>
-                                        <p class="from_the_blog_excerpt ">mức lương xuất khẩu lao động nhật bản lương bao nhiêu [...] </p>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
+                            <?php endforeach ?>
                             <!-- .col -->
                           </div>
                         </div>
-                        <div class="panel entry-content" id="tab_du-học">
+                        <div class="panel entry-content" id="tab_dịch-vụ">
                           <div class="row large-columns-2 medium-columns-1 small-columns-1 row-small">
+                            <?php foreach($dichVu as $item) :?>
                             <div class="col post-item">
                               <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/tuyen-15-nu-lam-may-mac-o-osaka-luong-hap-dan/" class="plain">
+                                <a href="post-item-details.php?category_id=1&id=<?php echo $item['id']?>" class="plain">
                                   <div class="box box-vertical box-text-middle box-blog-post has-hover">
                                     <div class="box-image" style="width:26%;">
                                       <div class="image-cover" style="padding-top:107%;">
-                                        <img width="300" height="197" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post8-1-300x197.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post8-1-300x197.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post8-1.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
+                                        <img width="300" height="197" src="<?php echo base_url() ?>image/<?php echo $item['image']?>" data-src="<?php echo base_url() ?>image/<?php echo $item['image']?>" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="<?php echo base_url() ?>image/<?php echo $item['image']?> 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post8-1.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
                                       </div>
                                     </div>
                                     <!-- .box-image -->
                                     <div class="box-text text-left">
                                       <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Tuyển 15 nữ làm may mặc ở Osaka lương hấp dẫn</h5>
-                                        <div class="is-divider"></div>
-                                        <p class="from_the_blog_excerpt ">Với nghiệp đoàn truyền thống, chúng tôi đang có cơ chế [...] </p>
+                                        <h5 class="post-title is-large "><?php echo $item['title'] ?></h5>
                                       </div>
                                       <!-- .box-text-inner -->
                                     </div>
@@ -475,87 +229,7 @@ require "connect.php";
                               </div>
                               <!-- .col-inner -->
                             </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/tuyen-gap-nu-lao-dong-lam-may-tui-vai/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:26%;">
-                                      <div class="image-cover" style="padding-top:107%;">
-                                        <img width="300" height="191" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post8-300x191.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post8-300x191.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post8.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Tuyển gấp nữ lao động làm May túi vải</h5>
-                                        <div class="is-divider"></div>
-                                        <p class="from_the_blog_excerpt ">Đơn hàng may túi vài cần tuyển gấp lao động nữ [...] </p>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/tuyen-25-nu-lam-may-quan-ao-tre-em-tai-kyoto/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:26%;">
-                                      <div class="image-cover" style="padding-top:107%;">
-                                        <img width="300" height="191" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7-300x191.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7-300x191.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Tuyển 25 nữ làm may quần áo trẻ em tại Kyoto</h5>
-                                        <div class="is-divider"></div>
-                                        <p class="from_the_blog_excerpt ">TUYỂN 25 NỮ LÀM MAY QUẦN ÁO TRẺ EM Nhu cầu về may [...] </p>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/tuyen-lao-dong-lam-nong-nghiep-di-nhat-ban-trong-kinh-gioi/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:26%;">
-                                      <div class="image-cover" style="padding-top:107%;">
-                                        <img width="300" height="225" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post2-300x225.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post2-300x225.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post2.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Tuyển lao động làm nông nghiệp đi Nhật bản trồng kinh giới</h5>
-                                        <div class="is-divider"></div>
-                                        <p class="from_the_blog_excerpt ">THÔNG BÁO TUYỂN DỤNG THỰC TẬP SINH ĐI LÀM VIỆC TẠI [...] </p>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
+                            <?php endforeach ?>
                             <!-- .col -->
                           </div>
                         </div>
@@ -576,7 +250,7 @@ require "connect.php";
                   <div class="col-inner">
                     <div class="thong-tin-lien-he">
                       <div class="hotline1">
-                        <span class="fa fa-phone"></span> Hotline: 0984.211.930
+                        <span class="fa fa-phone"></span> Hotline: 0984.211.xxx
                       </div>
                     </div>
                     <div class="gap-element" style="display:block; height:auto; padding-top:10px" class="clearfix"></div>
@@ -591,10 +265,10 @@ require "connect.php";
                       <div class="icon-box-text last-reset">
                         <p>
                           <span style="color: #ff6600;">
-                            <strong>Mr. Quân (Trưởng ban tư vấn)</strong>
+                            <strong>Mr. Admin (Trưởng ban tư vấn)</strong>
                           </span>
                           <br />
-                          <strong>Hotline:</strong> 0984.211.930 <br />
+                          <strong>Hotline:</strong> 0984.211.xxx <br />
                           <strong>Email:</strong> demo@gmail.com
                         </p>
                       </div>
@@ -603,7 +277,7 @@ require "connect.php";
                     <div class="gap-element" style="display:block; height:auto; padding-top:10px" class="clearfix"></div>
                     <p>
                       <center>
-                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftamnguyenmedia%2F&#038;tabs=timeline&#038;width=350&#038;height=280&#038;small_header=false&#038;adapt_container_width=true&#038;hide_cover=false&#038;show_facepile=true&#038;appId=948110208640186" width="350" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkimnam.nguyen.52493&tabs=timeline&width=350&height=280&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="350" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                       </center>
                     </p>
                   </div>
@@ -631,7 +305,7 @@ require "connect.php";
                       <span class="fa fa-pencil"></span>
                       <a href="#">
                         </p>
-                        <h3>Câu hỏi thường gặp khi đi làm tại Nhật Bản</h3>
+                        <h3>Câu hỏi thường gặp - Chính sách quyền lợi</h3>
                         <p>
                       </a>
                     </div>
@@ -639,20 +313,21 @@ require "connect.php";
                       <div class="col cot2 medium-6 small-12 large-6">
                         <div class="col-inner">
                           <div class="row large-columns-1 medium-columns-1 small-columns-1 row-xsmall">
+                            <?php foreach($thacMac as $item) :?>
                             <div class="col post-item">
                               <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/nghe-thuc-tap-sinh-dang-o-nhat-khuyen-lao-dong-trong-nuoc/" class="plain">
+                                <a href="post-item-details.php?category_id=3&id=<?php echo $item['id']?>" class="plain">
                                   <div class="box box-vertical box-text-middle box-blog-post has-hover">
                                     <div class="box-image" style="width:20%;">
                                       <div class="image-cover" style="padding-top:77%;">
-                                        <img width="300" height="188" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung-300x188.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung-300x188.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung.jpg 415w" sizes="(max-width: 300px) 100vw, 300px" />
+                                        <img width="300" height="188" src="<?php echo base_url() ?>image/<?php echo $item['image']?>" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung-300x188.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung-300x188.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung.jpg 415w" sizes="(max-width: 300px) 100vw, 300px" />
                                       </div>
                                     </div>
                                     <!-- .box-image -->
                                     <div class="box-text text-left">
                                       <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Nghe thực tập sinh đang ở Nhật khuyên lao động trong nước</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
+                                        <h5 class="post-title is-large "><?php echo $item['title'] ?></h5>
+                                        <div class="post-meta is-small op-8"><?php echo $item['created_at'] ?></div>
                                         <div class="is-divider"></div>
                                       </div>
                                       <!-- .box-text-inner -->
@@ -665,188 +340,8 @@ require "connect.php";
                               </div>
                               <!-- .col-inner -->
                             </div>
+                            <?php endforeach ?>
                             <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/quy-trinh-di-xuat-khau-lao-dong-nhat-ban-chuan/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:20%;">
-                                      <div class="image-cover" style="padding-top:77%;">
-                                        <img width="300" height="225" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12-300x225.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12-300x225.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Quy trình đi xuất khẩu lao động Nhật Bản – Chuẩn</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/muc-luong-xuat-khau-lao-dong-di-nhat-ban-hien-nay-bao-nhieu/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:20%;">
-                                      <div class="image-cover" style="padding-top:77%;">
-                                        <img width="300" height="176" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1-300x176.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1-300x176.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Mức lương xuất khẩu lao động đi Nhật Bản hiện nay bao nhiêu?</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/tuyen-18-nam-co-kinh-nghiem-han-xi-di-nhat-ban/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:20%;">
-                                      <div class="image-cover" style="padding-top:77%;">
-                                        <img width="300" height="197" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post9-300x197.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post9-300x197.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post9.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Tuyển 18 nam có kinh nghiệm hàn xì đi Nhật Bản</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/tuyen-15-nu-lam-may-mac-o-osaka-luong-hap-dan/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:20%;">
-                                      <div class="image-cover" style="padding-top:77%;">
-                                        <img width="300" height="197" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post8-1-300x197.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post8-1-300x197.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post8-1.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Tuyển 15 nữ làm may mặc ở Osaka lương hấp dẫn</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/tuyen-25-nu-lam-may-quan-ao-tre-em-tai-kyoto/" class="plain">
-                                  <div class="box box-vertical box-text-middle box-blog-post has-hover">
-                                    <div class="box-image" style="width:20%;">
-                                      <div class="image-cover" style="padding-top:77%;">
-                                        <img width="300" height="191" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7-300x191.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7-300x191.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Tuyển 25 nữ làm may quần áo trẻ em tại Kyoto</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col cot6 medium-6 small-12 large-6">
-                        <div class="col-inner">
-                          <h3 style="text-align: center;">Đăng ký ứng tuyển Online</h3>
-                          <p>Vui lòng nhập đầy đủ thông tin vào biểu mẫu bên dưới và gửi liên hệ cho chúng tôi. Nhân viên sẽ gọi điện lại tư vấn cho bạn sau 5 phút!</p>
-                          <div class="wpcf7 no-js" id="wpcf7-f276-p2-o1" lang="vi" dir="ltr">
-                            <div class="screen-reader-response">
-                              <p role="status" aria-live="polite" aria-atomic="true"></p>
-                              <ul></ul>
-                            </div>
-                            <form action="/xkld2/#wpcf7-f276-p2-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
-                              <div style="display: none;">
-                                <input type="hidden" name="_wpcf7" value="276" />
-                                <input type="hidden" name="_wpcf7_version" value="5.7.2" />
-                                <input type="hidden" name="_wpcf7_locale" value="vi" />
-                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f276-p2-o1" />
-                                <input type="hidden" name="_wpcf7_container_post" value="2" />
-                                <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-                              </div>
-                              <p>
-                                <span class="wpcf7-form-control-wrap" data-name="text-967">
-                                  <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Họ và tên..." value="" type="text" name="text-967" />
-                                </span>
-                                <br />
-                                <span class="wpcf7-form-control-wrap" data-name="text-128">
-                                  <input size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="Địa chỉ" type="text" name="text-128" />
-                                </span>
-                                <br />
-                                <span class="wpcf7-form-control-wrap" data-name="tel-584">
-                                  <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Số điện thoại..." value="" type="tel" name="tel-584" />
-                                </span>
-                                <br />
-                                <span class="wpcf7-form-control-wrap" data-name="email-801">
-                                  <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email" aria-invalid="false" placeholder="Địa chỉ email..." value="" type="email" name="email-801" />
-                                </span>
-                                <br />
-                                <span class="wpcf7-form-control-wrap" data-name="textarea-137">
-                                  <textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Thông tin cá nhân..." name="textarea-137"></textarea>
-                                </span>
-                                <br />
-                                <input class="wpcf7-form-control has-spinner wpcf7-submit" type="submit" value="Gửi đăng ký" />
-                              </p>
-                              <div class="wpcf7-response-output" aria-hidden="true"></div>
-                            </form>
                           </div>
                         </div>
                       </div>
@@ -859,33 +354,34 @@ require "connect.php";
                     <div class="tabbed-content">
                       <ul class="nav nav-tabs nav-uppercase nav-size-normal nav-left">
                         <li class="tab active has-icon">
-                          <a href="#tab_quy-trình---thủ-tục">
-                            <span>Quy trình - thủ tục</span>
+                          <a href="#tab_tuyển-dụng">
+                            <span>TUYỂN DỤNG JINSUNG</span>
                           </a>
                         </li>
                         <li class="tab has-icon">
-                          <a href="#tab_du-học-nhật-bản">
-                            <span>Du học Nhật Bản</span>
+                          <a href="#tab_Liên-hệ">
+                            <span>ĐĂNG KÝ</span>
                           </a>
                         </li>
                       </ul>
                       <div class="tab-panels">
-                        <div class="panel active entry-content" id="tab_quy-trình---thủ-tục">
+                        <div class="panel active entry-content" id="tab_tuyển-dụng">
                           <div class="row large-columns-1 medium-columns-1 small-columns-1 row-xsmall">
+                            <?php foreach($tuyenDung as $item) :?>
                             <div class="col post-item">
                               <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/top-5-cong-ty-xkld-nhat-ban-uy-tin-tai-tp-ho-chi-minh/" class="plain">
+                                <a href="post-item-details.php?category_id=3&id=<?php echo $item['id']?>" class="plain">
                                   <div class="box box-normal box-text-bottom box-blog-post has-hover">
                                     <div class="box-image">
                                       <div class="image-cover" style="padding-top:0%;">
-                                        <img width="300" height="191" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7-300x191.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7-300x191.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
+                                        <img width="300" height="191" src="<?php echo base_url() ?>image/<?php echo $item['image']?>" data-src="<?php echo base_url() ?>image/<?php echo $item['image']?>" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="<?php echo base_url() ?>image/<?php echo $item['image']?> 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
                                       </div>
                                     </div>
                                     <!-- .box-image -->
                                     <div class="box-text text-left">
                                       <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Top 5 công ty XKLĐ Nhật Bản uy tín tại TP. Hồ Chí Minh</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
+                                        <h5 class="post-title is-large "><?php echo $item['title'] ?></h5>
+                                        <div class="post-meta is-small op-8"><?php echo $item['created_at'] ?></div>
                                         <div class="is-divider"></div>
                                       </div>
                                       <!-- .box-text-inner -->
@@ -898,304 +394,78 @@ require "connect.php";
                               </div>
                               <!-- .col-inner -->
                             </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/dieu-kien-di-xuat-khau-lao-dong-tai-nhat-ban-moi-nhat-2018/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:0%;">
-                                        <img width="300" height="198" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/duc-nhua-lao-dong-nhat-ban3-300x198.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/duc-nhua-lao-dong-nhat-ban3-300x198.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/duc-nhua-lao-dong-nhat-ban3.jpg 480w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Điều kiện đi xuất khẩu lao động tại Nhật Bản mới nhất 2018</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/thu-tuc-ho-so-xuat-khau-lao-dong-sang-nhat-ban/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:0%;">
-                                        <img width="300" height="225" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/posst5-300x225.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/posst5-300x225.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/posst5.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Thủ tục hồ sơ xuất khẩu lao động sang Nhật Bản</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/nghe-thuc-tap-sinh-dang-o-nhat-khuyen-lao-dong-trong-nuoc/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:0%;">
-                                        <img width="300" height="188" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung-300x188.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung-300x188.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung.jpg 415w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Nghe thực tập sinh đang ở Nhật khuyên lao động trong nước</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/quy-trinh-di-xuat-khau-lao-dong-nhat-ban-chuan/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:0%;">
-                                        <img width="300" height="225" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12-300x225.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12-300x225.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Quy trình đi xuất khẩu lao động Nhật Bản – Chuẩn</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/muc-luong-xuat-khau-lao-dong-di-nhat-ban-hien-nay-bao-nhieu/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:0%;">
-                                        <img width="300" height="176" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1-300x176.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1-300x176.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Mức lương xuất khẩu lao động đi Nhật Bản hiện nay bao nhiêu?</h5>
-                                        <div class="post-meta is-small op-8">18/05/2018</div>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
+                            <?php endforeach ?>
                             <!-- .col -->
                           </div>
                         </div>
-                        <div class="panel entry-content" id="tab_du-học-nhật-bản">
-                          <div class="gap-element" style="display:block; height:auto; padding-top:10px" class="clearfix"></div>
-                          <div class="row large-columns-2 medium-columns-1 small-columns-1 row-small">
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/top-5-cong-ty-xkld-nhat-ban-uy-tin-tai-tp-ho-chi-minh/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:56.25%;">
-                                        <img width="300" height="191" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7-300x191.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7-300x191.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post7.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Top 5 công ty XKLĐ Nhật Bản uy tín tại TP. Hồ Chí Minh</h5>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
+                        <div class="panel entry-content" id="tab_Liên-hệ">
+                          <div class="gap-element" style="display:block; height:auto; padding-top:10px"></div>
+                          <h3 style="text-align: center;">
+                            <span style="color: #000080;">
+                              <strong>LIÊN HỆ ỨNG TUYỂN</strong>
+                            </span>
+                          </h3>
+                          <p>Vui lòng gửi CV trực tiếp tại một cửa của công ty hoặc đăng ký Online trực tiếp qua Zalo/Face/Phone của công ty.</p>
+                          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+                          
+                          <div class="contact-container">
+                            <div class="contact-card">
+                                <i class="fab fa-facebook-square"></i>
+                                <p>Facebook: <a href="https://www.facebook.com/yourprofile" target="_blank">facebook.com/yourprofile</a></p>
                             </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/dieu-kien-di-xuat-khau-lao-dong-tai-nhat-ban-moi-nhat-2018/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:56.25%;">
-                                        <img width="300" height="198" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/duc-nhua-lao-dong-nhat-ban3-300x198.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/duc-nhua-lao-dong-nhat-ban3-300x198.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/duc-nhua-lao-dong-nhat-ban3.jpg 480w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Điều kiện đi xuất khẩu lao động tại Nhật Bản mới nhất 2018</h5>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
+                            <div class="contact-card">
+                                <i class="fab fa-whatsapp"></i>
+                                <p>Zalo: <a href="https://zalo.me/yourphone" target="_blank">zalo.me/yourphone</a></p>
                             </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/thu-tuc-ho-so-xuat-khau-lao-dong-sang-nhat-ban/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:56.25%;">
-                                        <img width="300" height="225" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/posst5-300x225.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/posst5-300x225.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/posst5.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Thủ tục hồ sơ xuất khẩu lao động sang Nhật Bản</h5>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
+                            <div class="contact-card">
+                                <i class="fas fa-envelope"></i>
+                                <p>Email: <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a></p>
                             </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/nghe-thuc-tap-sinh-dang-o-nhat-khuyen-lao-dong-trong-nuoc/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:56.25%;">
-                                        <img width="300" height="188" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung-300x188.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung-300x188.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/xuat-khau-lao-dong-nhat-ban-xay-dung.jpg 415w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Nghe thực tập sinh đang ở Nhật khuyên lao động trong nước</h5>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/quy-trinh-di-xuat-khau-lao-dong-nhat-ban-chuan/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:56.25%;">
-                                        <img width="300" height="225" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12-300x225.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12-300x225.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/post12.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Quy trình đi xuất khẩu lao động Nhật Bản – Chuẩn</h5>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
-                            <div class="col post-item">
-                              <div class="col-inner">
-                                <a href="https://demo.tamnguyen.vn/xkld2/muc-luong-xuat-khau-lao-dong-di-nhat-ban-hien-nay-bao-nhieu/" class="plain">
-                                  <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                    <div class="box-image">
-                                      <div class="image-cover" style="padding-top:56.25%;">
-                                        <img width="300" height="176" src="https://demo.tamnguyen.vn/xkld2/wp-content/themes/flatsome/assets/img/lazy.png" data-src="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1-300x176.jpg" class="lazy-load attachment-medium size-medium wp-post-image" alt="" decoding="async" loading="lazy" srcset="" data-srcset="https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1-300x176.jpg 300w, https://demo.tamnguyen.vn/xkld2/wp-content/uploads/2018/05/tha-mac-1.jpg 400w" sizes="(max-width: 300px) 100vw, 300px" />
-                                      </div>
-                                    </div>
-                                    <!-- .box-image -->
-                                    <div class="box-text text-left">
-                                      <div class="box-text-inner blog-post-inner">
-                                        <h5 class="post-title is-large ">Mức lương xuất khẩu lao động đi Nhật Bản hiện nay bao nhiêu?</h5>
-                                        <div class="is-divider"></div>
-                                      </div>
-                                      <!-- .box-text-inner -->
-                                    </div>
-                                    <!-- .box-text -->
-                                  </div>
-                                  <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                              </div>
-                              <!-- .col-inner -->
-                            </div>
-                            <!-- .col -->
                           </div>
+                          <style>
+                          .contact-container {
+                              background-color: #fff;
+                              padding: 15px;
+                              border-radius: 10px;
+                              box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                              width: 345px;
+                              text-align: center;
+                          }
+
+                          .contact-container h2 {
+                              margin-bottom: 20px;
+                              color: #333;
+                          }
+
+                          .contact-card {
+                              display: flex;
+                              align-items: center;
+                              /* margin-bottom: 15px; */
+                              padding: 3px;
+                              border-radius: 5px;
+                              transition: background-color 0.3s ease;
+                          }
+
+                          .contact-card i {
+                              font-size: 24px;
+                              margin-right: 10px;
+                              color: #0078d4;
+                          }
+
+                          .contact-card p {
+                              margin: 0;
+                              font-size: 16px;
+                          }
+
+                          .contact-card a {
+                              color: #0078d4;
+                              text-decoration: none;
+                          }
+
+                          .contact-card:hover {
+                              background-color: #f0f0f0;
+                          }
+                          </style>
                         </div>
                       </div>
                     </div>

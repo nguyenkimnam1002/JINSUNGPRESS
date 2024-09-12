@@ -29,11 +29,11 @@ require "connect.php";
         html.className = html.className.replace(/\bno-js\b/, 'js')
       })(document.documentElement);
     </script>
-    <title>xkld2</title>
+    <title>jinsung</title>
     <meta name='robots' content='noindex, nofollow' />
-    <link rel="alternate" type="application/rss+xml" title="Dòng thông tin xkld2 &raquo;" href="https://demo.tamnguyen.vn/xkld2/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="Dòng phản hồi xkld2 &raquo;" href="https://demo.tamnguyen.vn/xkld2/comments/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="xkld2 &raquo; Trang chủ Dòng phản hồi" href="https://demo.tamnguyen.vn/xkld2/trang-chu/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="Dòng thông tin jinsung &raquo;" href="https://demo.tamnguyen.vn/xkld2/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="Dòng phản hồi jinsung &raquo;" href="https://demo.tamnguyen.vn/xkld2/comments/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="jinsung &raquo; Trang chủ Dòng phản hồi" href="https://demo.tamnguyen.vn/xkld2/trang-chu/feed/" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript">
       window._wpemojiSettings = {
@@ -1732,10 +1732,19 @@ require "connect.php";
                     <a href="<?php echo base_url() ?>" class="nav-top-link">Trang chủ</a>
                   </li>
                   <li id="menu-item-43" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-43">
-                    <a href="https://demo.tamnguyen.vn/xkld2/gioi-thieu/" class="nav-top-link">Giới thiệu</a>
+                    <a href="<?php echo base_url()?>gioithieu.php" class="nav-top-link">Giới thiệu</a>
                   </li>
                   <li id="menu-item-42" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-42">
-                    <a href="https://demo.tamnguyen.vn/xkld2/lien-he/" class="nav-top-link">Liên hệ</a>
+                  <?php
+                  $sql = "SELECT * FROM posts WHERE category_id = 6 ORDER BY ID DESC LIMIT 1";
+                  $result = mysqli_query($conn, $sql);
+               
+
+                  while ($row = mysqli_fetch_array($result)) {
+                    $id = $row['id'];
+                    $category_id = $row['category_id']; ?>
+                    <a href="post-lienhe.php?id=<?php echo $id?>&category_id=<?php echo $category_id?>" class="nav-top-link">Liên hệ</a>
+                    <?php } ?>
                   </li>
                   <li class="html header-social-icons ml-0">
                     <div class="social-icons follow-icons ">
@@ -1770,9 +1779,9 @@ require "connect.php";
               <!-- Logo -->
               <div id="logo" class="flex-col logo">
                 <!-- Header logo -->
-                <a href="<?php echo base_url() ?>" title="xkld2" rel="home">
-                  <img width="218" height="90" src="<?php echo base_url() ?>image/logo.jpg" class="header_logo header-logo" alt="xkld2" />
-                  <img width="218" height="90" src="<?php echo base_url() ?>image/logo.jpg" class="header-logo-dark" alt="xkld2" />
+                <a href="<?php echo base_url() ?>" title="jin sung press" rel="home">
+                  <img width="218" height="90" src="<?php echo base_url() ?>image/logo.jpg" class="header_logo header-logo" alt="jin sung press" />
+                  <img width="218" height="90" src="<?php echo base_url() ?>image/logo.jpg" class="header-logo-dark" alt="jin sung press" />
                 </a>
               </div>
               <!-- Mobile Left Elements -->

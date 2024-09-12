@@ -5,16 +5,20 @@
      $db= new Database();
 
     // Post giới thiệu
-    $sql = "SELECT * FROM posts WHERE category_id = 1 ORDER BY ID DESC LIMIT 1";
+    $sql = "SELECT * FROM posts WHERE category_id = 2 ORDER BY ID DESC LIMIT 1";
     $gioiThieu = $db->fetchsql($sql);
 
     // Post dịch vụ
-    $sql1 = "SELECT * FROM posts WHERE category_id = 2 ORDER BY ID DESC LIMIT 3";
+    $sql1 = "SELECT * FROM posts WHERE category_id = 1 ORDER BY ID DESC LIMIT 3";
     $dichVu = $db->fetchsql($sql1);
 
     // Post tuyển dụng
     $sql2 = "SELECT * FROM posts WHERE category_id = 3 ORDER BY ID DESC LIMIT 6";
     $tuyenDung = $db->fetchsql($sql2);
+
+     // Post liên hệ
+     $sql3 = "SELECT * FROM posts WHERE category_id = 6 ORDER BY ID DESC LIMIT 1";
+     $lienHe = $db->fetchsql($sql3);
 ?>
 <!-- Menu  -->
 <!-- .header-main -->
@@ -43,7 +47,7 @@
           </ul>
         </li>
         <li id="menu-item-682" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-682 has-dropdown">
-          <a href="https://demo.tamnguyen.vn/xkld2/tuyen-dung/" class="nav-top-link"> Thông tin tuyển dụng <i class="fa fa-angle-down"></i>
+          <a href="<?php echo base_url()?>section-topic-tuyendung.php?category_id=3" class="nav-top-link"> Thông tin tuyển dụng <i class="fa fa-angle-down"></i>
           </a>
           <ul class='nav-dropdown nav-dropdown-default'>
           <?php foreach($tuyenDung as $item) :?>
@@ -63,7 +67,9 @@
           <a href="<?php echo base_url()?>section-topic-tintuc.php?category_id=5" class="nav-top-link">Thắc mắc &#8211;giải đáp</a>
         </li>
         <li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-45">
-          <a href="<?php echo base_url()?>post-item-details.php?category_id=6&id=1" class="nav-top-link">Liên hệ</a>
+        <?php foreach($lienHe as $item) :?>
+          <a href="post-lienhe.php?id=<?php echo $item['id']?>&category_id=<?php echo $item['category_id']?>" class="nav-top-link">Liên hệ</a>
+        <?php endforeach ?>
         </li>
       </ul>
     </div>

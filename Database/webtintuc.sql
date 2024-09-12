@@ -1,29 +1,34 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1    Database: webtintuc
--- ------------------------------------------------------
--- Server version	8.0.27
+-- Host: 127.0.0.1
+-- Generation Time: Sep 11, 2024 at 10:45 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `webtintuc`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `accounts`
 --
 
-DROP TABLE IF EXISTS `accounts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `accounts` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) UNSIGNED NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(45) NOT NULL,
   `fullname` varchar(50) NOT NULL,
@@ -32,157 +37,226 @@ CREATE TABLE `accounts` (
   `gender` varchar(3) NOT NULL,
   `birthday` date NOT NULL,
   `role` varchar(30) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL,
-  `status` varchar(10) NOT NULL DEFAULT 'PUBLIC',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username_UNIQUE` (`username`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
+  `status` varchar(10) NOT NULL DEFAULT 'PUBLIC'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `accounts`
 --
 
-LOCK TABLES `accounts` WRITE;
-/*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `accounts` (`id`, `username`, `email`, `fullname`, `password`, `phone`, `gender`, `birthday`, `role`, `created_at`, `updated_at`, `status`) VALUES
+(8, 'Dai', 'dai05042000@gmail.com', 'Hồ Văn Đại', '147258369', '12322132', 'Nam', '2000-07-09', 'Admin', '2021-12-11 06:47:33', '0000-00-00 00:00:00', 'ACTIVE'),
+(10, 'Kiều', 'kieu0210@gmail.com', '', '', '0456879412', '', '0000-00-00', '', '2021-12-11 16:32:02', '0000-00-00 00:00:00', 'PUBLIC'),
+(11, 'Hoàng', 'hoanghunter@gmail.com', '', '', '0921458360', '', '0000-00-00', '', '2021-12-11 16:32:53', '0000-00-00 00:00:00', 'PUBLIC'),
+(12, 'dungtb123', 'dungtb@gmail.com', '', '', '0912327978', 'Nam', '0000-00-00', 'Admin', '2021-12-13 16:15:27', '0000-00-00 00:00:00', 'ACTIVE'),
+(13, 'Handz211', 'hanbede@gmail.com', 'Hán Vũ Hoàng Long', '123456', '0211345789', 'Nam', '2000-11-02', 'Member', '2021-12-13 18:18:15', '0000-00-00 00:00:00', 'ACTIVE'),
+(14, 'tungvt123', 'tungchv@gmail.com', 'Nguyễn Sơn Tùng', '12322132', '0147645978', 'Nam', '2000-11-19', 'Member', '2021-12-14 21:56:37', '0000-00-00 00:00:00', 'ACTIVE'),
+(15, 'Đạt', 'dattrang@gmail.com', 'Đỗ Thành Đạt', '0123456', '0645879123', 'Nam', '2000-04-02', 'Member', '2021-12-14 22:02:16', '0000-00-00 00:00:00', 'ACTIVE'),
+(16, 'Soncom', 'soncom2k1@gmail.com', 'Phạm Cao Thái Sơn', '369258147', '0911252147', 'Nam', '2001-12-12', 'Member', '2021-12-20 09:11:44', '0000-00-00 00:00:00', 'ACTIVE'),
+(18, 'Quy1987', 'quy1987@gmail.com', 'Phạm Văn Quý', '0147258369', '0564813794', 'Nam', '1987-05-05', 'Member', '2021-12-20 17:32:06', '0000-00-00 00:00:00', 'ACTIVE'),
+(19, 'admin', 'admin@gamil.com', 'Admin', '12345678', '0355781234', 'Nam', '2000-06-28', 'Admin', '2021-12-25 18:34:20', '0000-00-00 00:00:00', 'ACTIVE');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `advertisements`
 --
 
-DROP TABLE IF EXISTS `advertisements`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `advertisements` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `image` text NOT NULL,
   `link` varchar(100) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
-  `status` varchar(10) DEFAULT 'PUBLIC',
-  PRIMARY KEY (`id`)
+  `status` varchar(10) DEFAULT 'PUBLIC'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `advertisements`
 --
 
-LOCK TABLES `advertisements` WRITE;
-/*!40000 ALTER TABLE `advertisements` DISABLE KEYS */;
-/*!40000 ALTER TABLE `advertisements` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `advertisements` (`id`, `title`, `image`, `link`, `created_at`, `updated_at`, `status`) VALUES
+(2, 'Dầu gội Thái Dương', 'https://i.imgur.com/BDo4Nyx.jpg', 'https://saothaiduong.com.vn/', '2021-12-15 22:48:59', NULL, 'ACTIVE'),
+(3, ' Dạ hương ', 'https://cdn.chanhtuoi.com/uploads/2020/03/dung-dich-ve-sinh-phu-nu-da-huong-01.jpg', 'https://daotao.humg.edu.vn/', '2021-12-15 23:23:19', NULL, 'Activity'),
+(4, 'Bột giặt OMO', 'https://cdn.tgdd.vn/Products/Images/2463/81583/bhx/bot-giat-omo-he-bot-thong-minh-6kg-202106221712071149.jpg', 'https://www.unilever.com.vn/brands/home-care/omo/', '2021-12-16 22:34:13', NULL, 'ACTIVE');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `categories` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
   `slug` varchar(100) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
-  `status` varchar(10) DEFAULT 'PUBLIC',
-  PRIMARY KEY (`id`)
+  `status` varchar(10) DEFAULT 'PUBLIC'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `categories`
 --
 
-LOCK TABLES `categories` WRITE;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'Dịch vụ', 'dichvu', '2021-12-19 20:39:21', '2021-12-19 14:38:21', 'PUBLIC'),
+(2, 'Giới thiệu', 'gioithieu', '2021-12-15 20:52:16', '2021-12-12 14:52:16', 'PUBLIC'),
+(3, 'Tin tuyển dụng', 'tintuyendung', '2021-12-15 20:52:16', '2021-12-12 14:52:16', 'PUBLIC'),
+(4, 'Tin tức', 'tintuc', '2021-12-24 13:02:10', NULL, 'PUBLIC'),
+(5, 'Giải đáp thắc mắc', 'giaidapthacmac', '2021-12-24 13:02:10', NULL, 'PUBLIC'),
+(6, 'Liên hệ', 'lienhe', '2021-12-24 13:02:10', NULL, 'PUBLIC'),
+(7, 'Sức khỏe', 'suckhoe', '2021-12-24 13:02:10', NULL, 'PUBLIC'),
+(8, 'Giáo dục', 'giaoduc', '2021-12-24 13:02:10', NULL, 'PUBLIC'),
+(9, 'Văn hóa', 'vanhoa', '2021-12-24 13:02:10', NULL, 'PUBLIC');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `comments`
 --
 
-DROP TABLE IF EXISTS `comments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `comments` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) UNSIGNED NOT NULL,
   `content` text NOT NULL,
-  `post_id` int NOT NULL,
-  `account_id` int NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp(),
   `status` varchar(10) NOT NULL DEFAULT 'PUBLIC',
-  `posts_id` int unsigned NOT NULL,
-  `accounts_id` int unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_comments_posts1_idx` (`posts_id`),
-  KEY `fk_comments_accounts1_idx` (`accounts_id`),
-  CONSTRAINT `fk_comments_accounts1` FOREIGN KEY (`accounts_id`) REFERENCES `accounts` (`id`),
-  CONSTRAINT `fk_comments_posts1` FOREIGN KEY (`posts_id`) REFERENCES `posts` (`id`)
+  `post_id` int(10) UNSIGNED NOT NULL,
+  `account_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `comments`
---
-
-LOCK TABLES `comments` WRITE;
-/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `posts`
 --
 
-DROP TABLE IF EXISTS `posts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `posts` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(500) NOT NULL,
   `slug` varchar(500) NOT NULL,
   `image` text NOT NULL,
   `content` text NOT NULL,
-  `categories_id` int NOT NULL,
-  `account_id` int NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL,
   `status` varchar(10) DEFAULT 'PUBLIC',
-  `categories_id1` int unsigned NOT NULL,
-  `accounts_id` int unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_posts_categories_idx` (`categories_id1`),
-  KEY `fk_posts_accounts1_idx` (`accounts_id`),
-  CONSTRAINT `fk_posts_accounts1` FOREIGN KEY (`accounts_id`) REFERENCES `accounts` (`id`),
-  CONSTRAINT `fk_posts_categories` FOREIGN KEY (`categories_id1`) REFERENCES `categories` (`id`)
+  `category_id` int(10) UNSIGNED NOT NULL,
+  `accounts_id` int(10) UNSIGNED NOT NULL,
+  `loaiid` int(11) NOT NULL COMMENT '1: Gioi thieu\r\n2: Dich vu\r\n3: Tuyen dung\r\n4: Tin tuc\r\n5: Lien he'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `posts`
 --
 
-LOCK TABLES `posts` WRITE;
-/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `posts` (`id`, `title`, `slug`, `image`, `content`, `created_at`, `updated_at`, `status`, `category_id`, `accounts_id`, `loaiid`) VALUES
+(107, 'Nghe thực tập sinh đang ở Nhật khuyên lao động trong nước', '', 'z5714777870378_18edca4d64493fb228142e4376d006db.jpg', '<p>Nghe lời khuy&ecirc;n của những thực tập sinh đang trực tiếp l&agrave;m việc ở Nhật Bản. Thực tập sinh đi Nhật c&oacute; thực sự lương cao, sống đầy đủ như mọi người nghĩ ?</p>\r\n\r\n<p>Như c&aacute;c bạn đ&atilde; biết, Nhật Bản c&oacute; những h&igrave;nh thức trợ gi&uacute;p việc l&agrave;m cho lao động Việt Nam th&ocirc;ng qua h&igrave;nh thức&nbsp;<strong>lao động xuất khẩu</strong>.&nbsp;<strong>Thực tập sinh kỹ năng</strong>&nbsp;l&agrave; một chương tr&igrave;nh như vậy. Lợi &iacute;ch từ việc đi lao động theo dạng thực tập sinh th&igrave; đ&atilde; rất r&otilde; r&agrave;ng rồi. Hầu hết c&aacute;c thực tập sinh sang Nhật đều sớm ổn định c&ocirc;ng việc, nh&agrave; cửa sinh hoạt rất tốt, cộng th&ecirc;m sự trợ gi&uacute;p từ những anh chị đồng hương ở Nhật Bản n&ecirc;n c&aacute;c bạn lao động sang Nhật rất an t&acirc;m khi chọn Nhật Bản l&agrave; bến đỗ trong sự nghiệp.</p>\r\n\r\n<p><strong>Hỏi.&nbsp;</strong>Mới đ&acirc;y tr&ecirc;n trang mạng nổi tiếng VOZ đ&atilde; c&oacute; một bạn với nickname NoHaRa10 đ&atilde; hỏi: &ldquo;<em>Nh&agrave; m&igrave;nh đang c&oacute; 1 người th&acirc;n muốn xuất khẩu lao động sang Nhật Bản. ( Kh&ocirc;ng phải tu nghiệp ). M&igrave;nh muốn hỏi ở Voz đ&atilde; c&oacute; ai xuất khẩu lao động sang Nhật Bản th&igrave; cho m&igrave;nh phải to&agrave;n bộ chi ph&iacute; l&agrave; bao nhi&ecirc;u, sau khi đi về th&igrave; c&oacute; thể để ra bao nhi&ecirc;u tiền.&nbsp;Cảm ơn</em>&nbsp;<img alt=\"\" src=\"http://vozforums.com/images/smilies/Off/byebye.gif\" style=\"height:40px; width:40px\" />&ldquo;.</p>\r\n\r\n<blockquote>\r\n<p>Đối với c&acirc;u hỏi n&agrave;y c&oacute; một bạn&nbsp;<strong>thực tập sinh Nhật Bản</strong>&nbsp;đang sinh sống v&agrave; l&agrave;m việc ở Tokyo, nickname l&agrave; Khunsuarathon c&oacute; &yacute; kiến trả lời kh&aacute; gay gắt: &ldquo;<em>Đạo đức tốt v&agrave; lối sống l&agrave;nh mạnh th&igrave; mới qua Nhật nh&eacute;, kh&ocirc;ng th&ocirc;i lại l&agrave;m xấu mặt d&acirc;n Việt Nam b&ecirc;n đ&acirc;y. R&otilde; khổ, mấy &ocirc;ng mấy mẹ từ x&oacute; xỉnh n&agrave;o sang đ&acirc;y, đi t&agrave;u th&igrave; trốn, ăn cắp, nhậu nhẹt đ&aacute;nh nhau t&ugrave;m lum t&ugrave;m la, l&agrave;m d&acirc;n Việt Nam ch&acirc;n ch&iacute;nh b&ecirc;n n&agrave;y phải mang tiếng xấu l&acirc;y</em>&ldquo;.</p>\r\n</blockquote>\r\n\r\n<p>&Yacute; kiến của Khunsuarathon c&oacute; phần gay gắt như vậy cũng c&oacute; c&aacute;i l&yacute; của bạn ấy. H&igrave;nh ảnh của người Việt Nam trong mắt bạn b&egrave; Nhật Bản đang bị ảnh hưởng sau những việc l&agrave;m như vậy. B&aacute;o ch&iacute; trong nước li&ecirc;n tục l&ecirc;n &aacute;n &yacute; thức của người Việt sau vụ việc tiếp vi&ecirc;n h&agrave;ng kh&ocirc;ng của Việt Nam mua đồ ăn cắp b&ecirc;n Nhật Bản. C&aacute;c bạn&nbsp;<strong>thực tập sinh</strong>&nbsp;h&atilde;y tự r&uacute;t ra kinh nghiệm cho ch&iacute;nh bản th&acirc;n m&igrave;nh, d&ugrave; l&agrave;m c&ocirc;ng việc g&igrave; cũng cần phải đ&agrave;ng ho&agrave;ng, nhất l&agrave; trong m&ocirc;i trường l&agrave;m việc của Nhật Bản.</p>\r\n\r\n<p>Một bạn kh&aacute;c c&oacute; nickname&nbsp;Doc_Co_Cau_Bai th&igrave; cho biết: &ldquo;<em>C&oacute; thể tầm 230-250tr. ( t&iacute;nh tiền ăn ở học tiếng mấy th&aacute;ng, tiền ph&iacute; đi , linh tinh kh&aacute;c nữa).&nbsp;Trung b&igrave;nh 800 y&ecirc;n 1 tiếng ~ 160k, ng&agrave;y 8 tiếng khoảng 1,2tr. Th&aacute;ng chăm chăm chắc khoảng 33-35tr, trừ ph&iacute; đi c&oacute; thể để d&agrave;nh khoảng 20&gt;25tr.&nbsp;Tự t&iacute;nh nốt n</em>h&eacute;&rdquo;.</p>\r\n\r\n<blockquote>\r\n<p>Với &yacute; kiến n&agrave;y, bạn Mr.Xoai cho rằng: &ldquo;<em>20-25tr trong 3 năm vậy đi l&agrave;m g&igrave;. Theo m&igrave;nh biết th&igrave; mới qua năm đầu lương chỉ khoảng 15-20tr 1 th&aacute;ng,qua năm thứ 2 lương sẽ cao hơn , năm thứ 3 cũng thế . Nếu tiết kiệm th&igrave; 3 năm dư khoảng 400-500mil , cộng th&ecirc;m l&uacute;c về vn sẽ đc l&atilde;nh th&ecirc;m tiền bảo hiểm của cty trả khoang 80mil&nbsp;</em>&ldquo;.</p>\r\n</blockquote>\r\n\r\n<p><img alt=\"xuat-khau-lao-dong-nhat-ban-xay-dung\" src=\"http://xuatkhaulaodongnb.com/wp-content/uploads/2014/11/xuat-khau-lao-dong-nhat-ban-xay-dung.jpg\" /></p>\r\n\r\n<p><strong>Hỏi.</strong>&nbsp;Vẫn c&ograve;n nhiều vấn đề thắc mắc, bạn Va93 c&oacute; c&acirc;u hỏi tiếp theo: &ldquo;<em>cho em hỏi đi XKLD Nhật th&igrave; sang đ&oacute; chi ph&iacute; ăn ở đi lại l&agrave; m&igrave;nh lo hay họ lo vậy ạ. nếu lương th&aacute;ng 25 triệu th&igrave; m&igrave;nh c&oacute; gửi về nh&agrave; hết 25tr được kh&ocirc;ng?&nbsp;</em>&ldquo;.</p>\r\n\r\n<blockquote>\r\n<p>Để giải đ&aacute;p thắc mắc n&agrave;y bạn Mr.Xoai trả lời: &ldquo;<em>tiền nh&agrave; ở ăn uống m&igrave;nh tự lo đ&oacute; b&aacute;c , nhưng m&agrave; sẽ c&oacute; chỗ thu&ecirc; rẻ tại v&igrave; đa số về c&aacute;c v&ugrave;ng qu&ecirc; nhật bản l&agrave;m việc</em>&ldquo;.</p>\r\n</blockquote>\r\n\r\n<p>Lại c&oacute; &yacute; kiến kh&aacute;c cho rằng lương đi l&agrave;m việc lao động xuất khẩu nhật bản của&nbsp;<strong>thực tập sinh đi Nhật</strong>kh&ocirc;ng cao như c&aacute;c bạn nghĩ: &ldquo;Đang<em>&nbsp;l&agrave;m ở nhật đ&acirc;y, lương&nbsp;18 triệu/th&aacute;ng.&nbsp;C&aacute;c bạn trẻ cứ ngồi đấy m&agrave; mơ.&nbsp;Tuần n&agrave;y đang nghỉ 3 ng&agrave;y</em>&ldquo;.</p>\r\n\r\n<p>R&otilde; r&agrave;ng một điều rằng c&aacute;c bạn lao động trong nước đang lầm tưởng rằng cứ đi&nbsp;<strong>thực tập sinh sang Nhật Bản</strong>&nbsp;l&agrave; c&aacute;c bạn sẽ sống sung sướng vui vẻ. Nhưng thực tế kh&ocirc;ng như vậy, đơn giản v&igrave; kh&ocirc;ng c&oacute; c&ocirc;ng việc n&agrave;o l&agrave; đơn giản cả, c&aacute;c bạn cần trực tiếp l&agrave;m c&ocirc;ng việc đ&oacute; để c&oacute; kinh nghiệm, kiến thức chứ kh&ocirc;ng thể đo&aacute;n m&ograve; được.</p>\r\n\r\n<p>Tr&ecirc;n đ&acirc;y l&agrave; g&oacute;c nh&igrave;n của một v&agrave;i&nbsp;<strong>thực tập sinh ở Nhật Bản</strong>, những lời khuy&ecirc;n ngắn nhưng v&ocirc; c&ugrave;ng hữu &iacute;ch cho c&aacute;c bạn lao động c&oacute; nhu cầu đi lao động xuất khẩu Nhật Bản. C&aacute;c bạn h&atilde;y tham khảo thật kỹ những lời khuy&ecirc;n v&agrave; tự vạch ra đường hướng ri&ecirc;ng cho ch&iacute;nh m&igrave;nh như c&acirc;u n&oacute;i d&acirc;n gian &ldquo;Tuổi trẻ x&ocirc;ng pha, l&agrave;m n&ecirc;n nghiệp lớn&rdquo;.</p>\r\n\r\n<p>Ch&uacute;c c&aacute;c bạn th&agrave;nh c&ocirc;ng!</p>\r\n', '2024-09-10 16:20:01', NULL, 'PUBLIC', 4, 8, 0),
+(108, 'Thủ tục hồ sơ xuất khẩu lao động sang Nhật Bản', '', 'slide2.jpg', '<p>1. Sơ yếu l&yacute; lịch ( X&aacute;c nhận của UBND x&atilde;, phường) 2 bản.</p>\r\n\r\n<p>2. Hộ khẩu, CMND, Giấy khai sinh ( Sao y bản ch&iacute;nh, chứng thực) mỗi loại 2 bản.</p>\r\n\r\n<p>3. C&aacute;c văn bằng, chứng chỉ ( Lưu &yacute;: Y&ecirc;u cầu tr&igrave;nh độ văn h&oacute;a phải tốt nghiệp lớp 12 trở l&ecirc;n). Sao y bản chỉnh, chứng thực: 2 bản</p>\r\n\r\n<p>4. X&aacute;c nhận nh&acirc;n sự ( Theo mẫu quy định, do C&ocirc;ng an địa phương cấp, kh&ocirc;ng được viết tay. C&oacute; x&aacute;c nhận của UBND x&atilde;, phường nơi thực tập sinh cư tr&uacute;) y&ecirc;u cầu d&aacute;n ảnh 4*6 v&agrave;o &ocirc; d&aacute;n ảnh, c&oacute; đ&oacute;ng dấu gi&aacute;p lai v&agrave;o bảnh: 1 bản</p>\r\n\r\n<p>5. X&aacute;c nhận t&igrave;nh trạng h&ocirc;n nh&acirc;n (nếu đ&atilde; kết h&ocirc;n) c&oacute; x&aacute;c nhận UBND x&atilde;, phường Trường hợp đ&atilde; kết h&ocirc;n th&igrave; photo giấy đăng k&yacute; kết h&ocirc;n ( chứng thực). 1 bản</p>\r\n\r\n<p>6. Kh&aacute;m sức khỏe tổng thể tại BV Giao th&ocirc;ng vận tải TW ( Li&ecirc;n hệ với CBTD để được hướng dẫn chi tiết).</p>\r\n\r\n<p><strong>Lưu &yacute;</strong>: C&aacute;c văn bản do ch&iacute;nh tay người tham gia viết.</p>\r\n\r\n<p>C&ugrave;ng 1 loại mực. Văn bản c&oacute; 2 tờ phải đ&oacute;ng dấu gi&aacute;p lai.</p>\r\n\r\n<p>Tr&ecirc;n đ&acirc;y l&agrave; thủ tục, hồ sơ xuất khẩu lao động Nhật Bản ch&iacute;nh x&aacute;c nhất cho c&aacute;c bạn thực tập sinh</p>\r\n', '2024-09-10 16:30:25', NULL, 'PUBLIC', 1, 8, 0),
+(109, 'Mức lương xuất khẩu lao động đi Nhật Bản hiện nay bao nhiêu?', '', 'z5714776193357_a995637881a8620d0991b23e75f8115c.jpg', '<p>mức lương xuất khẩu lao động nhật bản lương bao nhi&ecirc;u phụ thuộc v&agrave;o nhiều yếu tố như lương cơ bản của thực tập sinh, lương thực tế,l&agrave;m th&ecirc;m tăng ca nhiều hay &iacute;t</p>\r\n\r\n<p>Đi xuất khẩu lao động Nhật đang khởi sắc nhanh ch&oacute;ng trong những năm gần đ&acirc;y. Người th&igrave; n&oacute;i đi lao động Nhật v&agrave;i năm về c&oacute; &ldquo;tiền chục, tiền trăm&rdquo;, c&oacute; người mua &ocirc; t&ocirc;, x&acirc;y nh&agrave; cao tầng&hellip; Người th&igrave; n&oacute;i khi về c&oacute; kinh nghiệm l&agrave;m việc v&agrave; t&aacute;c phong c&ocirc;ng nghiệp sẽ thuận lợi cho sự nghiệp về l&acirc;u về d&agrave;i&hellip; Đ&oacute; l&agrave; những l&iacute; do ho&agrave;n to&agrave;n ch&iacute;nh đ&aacute;ng của người lao động Việt c&oacute; tr&iacute; vươn l&ecirc;n l&agrave;m gi&agrave;u.</p>\r\n\r\n<p>Nhiều người n&oacute;i rằng &ldquo;<strong>đi xuất khẩu lao động nhật th&igrave; sẽ được lương cao lắm</strong>, cuộc sống đầy đủ lắm&rdquo;. Thực tế mức lương xuất khẩu lao động Nhật Bản c&oacute; phải như vậy kh&ocirc;ng? Liệu rằng mức lương xuất khẩu lao động Nhật Bản c&oacute; thực sự cao như vậy? &nbsp;Ch&uacute;ng ta h&atilde;y xem thực sự đi Nhật l&agrave;m việc lương bao nhi&ecirc;u nh&eacute;!</p>\r\n\r\n<h2>Xuất khẩu lao động Nhật Bản lương bao nhi&ecirc;u ?</h2>\r\n\r\n<p>Để t&iacute;nh được xuất khẩu lao động Nhật Bản hưởng lương bao nhi&ecirc;u? H&atilde;y l&agrave;m một b&agrave;i to&aacute;n nhỏ như sau:</p>\r\n\r\n<p>Đối với một lao động phổ th&ocirc;ng, nếu họ sẵn s&agrave;ng đầu tư từ 100 đến 150 triệu đồng để đi xuất khẩu lao động Nhật Bản ( t&ugrave;y mỗi ng&agrave;nh nghề c&oacute; chi ph&iacute; kh&aacute;c nhau ). Với thời gian đi tối thiểu 3 năm, khi về nước họ c&oacute; trong tay khoảng 500 đến 800 triệu đồng (tiền lương sau khi trừ chi ph&iacute; cho cuộc sống b&ecirc;n Nhật).</p>\r\n\r\n<p>Như vậy so với l&agrave;m việc tại Việt Nam, số tiền để ra được của những lao động đi Nhật l&agrave; cao hơn kh&aacute; nhiều. Với c&aacute;ch nh&igrave;n đơn giản như vậy th&igrave; ch&uacute;ng ta thấy rằng đi l&agrave;m việc tại Nhật đương nhi&ecirc;n sẽ c&oacute; nhiều tiền hơn đi l&agrave;m trong nước. Để đạt được con số lương như vậy kh&ocirc;ng đơn giản, vậy th&igrave; người lao động Nhật Bản bị những yếu tố n&agrave;o ảnh hưởng đến lương của họ?</p>\r\n\r\n<p><img alt=\"Tu nghiệp sinh tại Nhật - Nhà máy in Kento nhận lương 22 man/tháng\" src=\"http://xuatkhaulaodongnb.com/wp-content/uploads/2014/12/tunghiepsinh2.jpg\" style=\"height:480px; width:640px\" /></p>\r\n\r\n<p>Tu nghiệp sinh tại Nhật &ndash; Nh&agrave; m&aacute;y in Kento nhận lương 22 man/th&aacute;ng</p>\r\n\r\n<h3><strong>Lương cơ bản của thực tập sinh Nhật Bản</strong></h3>\r\n\r\n<p>Đi thực tập sinh kỹ năng l&agrave; chương tr&igrave;nh phổ biến nhất hiện nay d&agrave;nh cho những lao động nước ngo&agrave;i đến l&agrave;m việc ở Nhật Bản. Người lao động đi theo chương tr&igrave;nh n&agrave;y sẽ được Luật lao động Nhật Bản đảm bảo c&aacute;c chế độ lương thưởng theo quy định của ch&iacute;nh phủ Nhật Bản.&nbsp; Thực tập sinh được trả theo mức lương cơ bản d&agrave;nh cho lao động phổ th&ocirc;ng, do vậy mức lương thường kh&ocirc;ng ph&acirc;n biệt theo ngh&agrave;nh nghề c&ocirc;ng nghiệp, n&ocirc;ng nghiệp, x&acirc;y dựng,&hellip;</p>\r\n\r\n<p>Hiện tại, mức lương cơ bản của Thực tập sinh khoảng 120.000 đến 150.000 Y&ecirc;n/th&aacute;ng. T&iacute;nh theo tỷ gi&aacute; mới nhất đầu th&aacute;ng 11/201 l&agrave; 1 Y&ecirc;n = 216.00 đồng, mức lương tương đương 25.920.000 đến 32.400.000 đồng/th&aacute;ng. Cụ thể th&igrave; trong hợp đồng lương của Thực tập sinh, thu nhập được t&iacute;nh theo giờ khoảng 750 đến 870 y&ecirc;n/giờ (theo quy định). Đ&acirc;y l&agrave; lương chưa t&iacute;nh l&agrave;m th&ecirc;m hoặc c&oacute; chỉ số phụ kh&aacute;c.</p>\r\n\r\n<h3><strong>C&aacute;c yếu tố ảnh hưởng đến lương của thực tập sinh</strong></h3>\r\n\r\n<ul>\r\n	<li><strong>Thuế</strong>:&nbsp;Thuế thu nhập c&aacute; nh&acirc;n thực tế đ&atilde; được x&iacute; nghiệp trừ thằng v&agrave;o lương h&agrave;ng th&aacute;ng, mức thuế n&agrave;y phụ thuộc v&agrave;o rất nhiều yếu tố kh&aacute;c nhau như khu vực, ng&agrave;nh nghề&hellip;</li>\r\n	<li><strong>Bảo hiểm</strong>: Thực tập sinh sang Nhật được đ&oacute;ng 2 đến 3 loại bảo hiểm v&agrave; tổng trừ khoảng 15.000 &ndash; 20.000 Y&ecirc;n/th&aacute;ng. Được kh&aacute;m chữa bệnh định kỳ kh&ocirc;ng mất ph&iacute;, mọi vấn đề li&ecirc;n quan đến sức khỏe Thực tập sinh c&oacute; thể b&aacute;o ngay cho x&iacute; nghiệp hoặc nghiệp đo&agrave;n quản l&yacute; để được đưa đi kh&aacute;m, chữa trị.&nbsp;Sau khi hết hạn hợp đồng, Thực tập sinh được nhận lại c&aacute;c khoản tr&iacute;ch từ bảo hiểm nh&acirc;n thọ (gọi l&agrave; tiền nenkin).</li>\r\n	<li><strong>Thu&ecirc; nh&agrave; + đi lại</strong>: C&aacute;c thực tập sinh phải tự thu&ecirc; nh&agrave; để ăn ở v&agrave; sinh sống. Hầu hết c&aacute;c c&ocirc;ng ty Nhật đều c&oacute; những nh&agrave; ở nội tr&uacute; cho thực tập sinh. Chi ph&iacute; thu&ecirc; nh&agrave; khoảng 15.000 y&ecirc;n/th&aacute;ng, đi lại phương tiện c&ocirc;ng cộng hoặc xe đạp khoảng 10.000 y&ecirc;n/th&aacute;ng.</li>\r\n	<li><strong>Ăn uống</strong>: tiền ăn uống h&agrave;ng th&aacute;ng b&ecirc;n Nhật kh&aacute; đắt đỏ, thường rơi v&agrave;o khoảng 30.000 y&ecirc;n/th&aacute;ng.</li>\r\n</ul>\r\n\r\n<p>Đ&oacute; l&agrave; những khoản tối thiểu m&agrave; thực tập sinh cần chi trả mỗi th&aacute;ng. Với số tiền chi trả tr&ecirc;n, cần phải sống rất tiết kiệm v&agrave; chưa kể những phụ ph&iacute; như : kh&ocirc;ng c&oacute; bất kỳ một chuyến đi chơi hay thăm bạn b&egrave; n&agrave;o trong một th&aacute;ng liền. Đ&acirc;y l&agrave; những khoản chi của thực tập sinh khi ở Nhật Bản, c&aacute;c bạn muốn t&igrave;m hiểu chi ph&iacute; phải trả trước khi sang Nhật như ph&iacute; xuất cảnh, ph&iacute; bảo l&atilde;nh&hellip; mời xem tại&nbsp;xuất khẩu lao động nhật bản mất bao nhi&ecirc;u tiền<strong>&nbsp;</strong>?</p>\r\n\r\n<h3><strong>Lương v&agrave; thu nhập thực tế</strong></h3>\r\n\r\n<p>Lương trả trực tiếp qua thẻ ng&acirc;n h&agrave;ng của thực tập sinh&nbsp;kh&ocirc;ng th&ocirc;ng qua c&aacute; nh&acirc;n n&agrave;o kh&aacute;c. Mức lương xuất khẩu lao động Nhật Bản&nbsp;thực lĩnh của Thực tập sinh thường từ 120.000 đến 180.000 Y&ecirc;n/th&aacute;ng (đ&atilde; t&iacute;nh cả tăng ca).&nbsp;Mỗi th&aacute;ng, trung b&igrave;nh l&agrave;m việc ở Nhật để ra được 23.000.000 đến 36.000.000 đồng (t&ugrave;y v&agrave;o khả năng lao động). Đ&acirc;y l&agrave; khoản thu nhập cao đối với lao động Việt Nam, tuy nhi&ecirc;n đ&acirc;y l&agrave; thu nhập t&iacute;nh trung b&igrave;nh.</p>\r\n\r\n<h3><strong>Tu nghiệp sinh Nhật lương bao nhi&ecirc;u khi l&agrave;m th&ecirc;m ?</strong></h3>\r\n\r\n<p><strong>Lương của thực tập sinh</strong>&nbsp;được t&iacute;nh theo giờ, mỗi tuần l&agrave;m từ 40 &ndash; 44h theo quy định của x&iacute; nghiệp. Th&ocirc;ng thường hệ số cho mỗi giờ l&agrave;m th&ecirc;m từ 1,25-2 t&ugrave;y thuộc v&agrave;o t&iacute;nh chất của giờ l&agrave;m th&ecirc;m.</p>\r\n\r\n<p>V&iacute; dụ: mức lương người A l&agrave; 140.000, người B l&agrave; 120.000. Cả hai đều mỗi tuần l&agrave;m 40h v&agrave; 1 th&aacute;ng c&oacute; 28 ng&agrave;y, mức thu nhập mỗi giờ của A=875 v&agrave; B=750. =&gt;&nbsp;A c&oacute; lương thực lĩnh l&agrave; 100.000 Y&ecirc;n, B l&agrave; 80.000.</p>\r\n\r\n<p>&ndash;&nbsp;Nếu 1 tuần B l&agrave;m th&ecirc;m 1 ng&agrave;y thứ 7 th&igrave; =&gt; thu nhập l&agrave;m th&ecirc;m của B = 750*8*4*1,35 =&nbsp;32.400 (hệ số l&agrave;m th&ecirc;m 1,35, 4 tuần v&agrave; thứ 7 l&agrave;m 8 tiếng). Như vậy tổng thu nhập của B l&agrave; 152.400 Y&ecirc;n, cao hơn A d&ugrave; mức lương cơ bản thấp hơn rất nhiều.</p>\r\n\r\n<p>Vậy n&ecirc;n nếu người A đ&atilde; c&oacute; mức lương mỗi giờ cao sẵn rồi m&agrave; cũng đi l&agrave;m th&ecirc;m th&igrave; thu nhập mỗi th&aacute;ng sẽ tăng l&ecirc;n nhiều hơn hẳn so với kh&ocirc;ng l&agrave;m th&ecirc;m.</p>\r\n\r\n<p>Đ&oacute; l&agrave; những yếu tố ảnh hưởng &iacute;t nhiều để&nbsp;<strong>lương của&nbsp;lao động xuất khẩu Nhật Bản</strong>&nbsp;khi l&agrave;m việc tại Nhật Bản. Ngo&agrave;i ra, c&aacute;ch t&iacute;nh lương cho thực tập sinh c&ograve;n phụ thuộc v&agrave;o khu vực, th&agrave;nh phố kh&aacute;c nhau; ng&agrave;nh nghề l&agrave;m việc; t&iacute;nh chất c&ocirc;ng việc nặng hay nhẹ; khung lương của x&iacute; nghiệp đang l&agrave;m việc.</p>\r\n\r\n<p>Th&ecirc;m nữa, khi trao đổi với nhiều lớp lao động ở v&agrave;i năm trở lại đ&acirc;y, c&oacute; một sự thật kh&aacute; hay l&agrave; trong c&ugrave;ng x&iacute; nghiệp c&oacute; thực tập sinh Việt Nam v&agrave; Trung Quốc th&igrave; lương của Thực tập sinh Việt Nam thường cao hơn lao động Trung Quốc. Điều đ&oacute; cho thấy, chủ x&iacute; nghiệp Nhật Bản vẫn c&oacute; c&aacute;i nh&igrave;n tốt hơn với lao động Việt Nam, một phần do quan hệ hợp t&aacute;c Việt Nam &ndash; Nh&acirc;t Bản vẫn rất tốt từ nhiều năm nay.</p>\r\n', '2024-09-10 17:00:13', NULL, 'PUBLIC', 1, 8, 0),
+(110, 'Mức lương xuất khẩu lao động đi Nhật Bản hiện nay bao nhiêu?', '', 'z5714777913581_28e2c3db7ee54ff31df229f558f5cc60.jpg', '<p>mức lương xuất khẩu lao động nhật bản lương bao nhi&ecirc;u phụ thuộc v&agrave;o nhiều yếu tố như lương cơ bản của thực tập sinh, lương thực tế,l&agrave;m th&ecirc;m tăng ca nhiều hay &iacute;t</p>\r\n\r\n<p>Đi xuất khẩu lao động Nhật đang khởi sắc nhanh ch&oacute;ng trong những năm gần đ&acirc;y. Người th&igrave; n&oacute;i đi lao động Nhật v&agrave;i năm về c&oacute; &ldquo;tiền chục, tiền trăm&rdquo;, c&oacute; người mua &ocirc; t&ocirc;, x&acirc;y nh&agrave; cao tầng&hellip; Người th&igrave; n&oacute;i khi về c&oacute; kinh nghiệm l&agrave;m việc v&agrave; t&aacute;c phong c&ocirc;ng nghiệp sẽ thuận lợi cho sự nghiệp về l&acirc;u về d&agrave;i&hellip; Đ&oacute; l&agrave; những l&iacute; do ho&agrave;n to&agrave;n ch&iacute;nh đ&aacute;ng của người lao động Việt c&oacute; tr&iacute; vươn l&ecirc;n l&agrave;m gi&agrave;u.</p>\r\n\r\n<p>Nhiều người n&oacute;i rằng &ldquo;<strong>đi xuất khẩu lao động nhật th&igrave; sẽ được lương cao lắm</strong>, cuộc sống đầy đủ lắm&rdquo;. Thực tế mức lương xuất khẩu lao động Nhật Bản c&oacute; phải như vậy kh&ocirc;ng? Liệu rằng mức lương xuất khẩu lao động Nhật Bản c&oacute; thực sự cao như vậy? &nbsp;Ch&uacute;ng ta h&atilde;y xem thực sự đi Nhật l&agrave;m việc lương bao nhi&ecirc;u nh&eacute;!</p>\r\n\r\n<h2>Xuất khẩu lao động Nhật Bản lương bao nhi&ecirc;u ?</h2>\r\n\r\n<p>Để t&iacute;nh được xuất khẩu lao động Nhật Bản hưởng lương bao nhi&ecirc;u? H&atilde;y l&agrave;m một b&agrave;i to&aacute;n nhỏ như sau:</p>\r\n\r\n<p>Đối với một lao động phổ th&ocirc;ng, nếu họ sẵn s&agrave;ng đầu tư từ 100 đến 150 triệu đồng để đi xuất khẩu lao động Nhật Bản ( t&ugrave;y mỗi ng&agrave;nh nghề c&oacute; chi ph&iacute; kh&aacute;c nhau ). Với thời gian đi tối thiểu 3 năm, khi về nước họ c&oacute; trong tay khoảng 500 đến 800 triệu đồng (tiền lương sau khi trừ chi ph&iacute; cho cuộc sống b&ecirc;n Nhật).</p>\r\n\r\n<p>Như vậy so với l&agrave;m việc tại Việt Nam, số tiền để ra được của những lao động đi Nhật l&agrave; cao hơn kh&aacute; nhiều. Với c&aacute;ch nh&igrave;n đơn giản như vậy th&igrave; ch&uacute;ng ta thấy rằng đi l&agrave;m việc tại Nhật đương nhi&ecirc;n sẽ c&oacute; nhiều tiền hơn đi l&agrave;m trong nước. Để đạt được con số lương như vậy kh&ocirc;ng đơn giản, vậy th&igrave; người lao động Nhật Bản bị những yếu tố n&agrave;o ảnh hưởng đến lương của họ?</p>\r\n\r\n<p><img alt=\"Tu nghiệp sinh tại Nhật - Nhà máy in Kento nhận lương 22 man/tháng\" src=\"http://xuatkhaulaodongnb.com/wp-content/uploads/2014/12/tunghiepsinh2.jpg\" style=\"height:480px; width:640px\" /></p>\r\n\r\n<p>Tu nghiệp sinh tại Nhật &ndash; Nh&agrave; m&aacute;y in Kento nhận lương 22 man/th&aacute;ng</p>\r\n\r\n<h3><strong>Lương cơ bản của thực tập sinh Nhật Bản</strong></h3>\r\n\r\n<p>Đi thực tập sinh kỹ năng l&agrave; chương tr&igrave;nh phổ biến nhất hiện nay d&agrave;nh cho những lao động nước ngo&agrave;i đến l&agrave;m việc ở Nhật Bản. Người lao động đi theo chương tr&igrave;nh n&agrave;y sẽ được Luật lao động Nhật Bản đảm bảo c&aacute;c chế độ lương thưởng theo quy định của ch&iacute;nh phủ Nhật Bản.&nbsp; Thực tập sinh được trả theo mức lương cơ bản d&agrave;nh cho lao động phổ th&ocirc;ng, do vậy mức lương thường kh&ocirc;ng ph&acirc;n biệt theo ngh&agrave;nh nghề c&ocirc;ng nghiệp, n&ocirc;ng nghiệp, x&acirc;y dựng,&hellip;</p>\r\n\r\n<p>Hiện tại, mức lương cơ bản của Thực tập sinh khoảng 120.000 đến 150.000 Y&ecirc;n/th&aacute;ng. T&iacute;nh theo tỷ gi&aacute; mới nhất đầu th&aacute;ng 11/201 l&agrave; 1 Y&ecirc;n = 216.00 đồng, mức lương tương đương 25.920.000 đến 32.400.000 đồng/th&aacute;ng. Cụ thể th&igrave; trong hợp đồng lương của Thực tập sinh, thu nhập được t&iacute;nh theo giờ khoảng 750 đến 870 y&ecirc;n/giờ (theo quy định). Đ&acirc;y l&agrave; lương chưa t&iacute;nh l&agrave;m th&ecirc;m hoặc c&oacute; chỉ số phụ kh&aacute;c.</p>\r\n\r\n<h3><strong>C&aacute;c yếu tố ảnh hưởng đến lương của thực tập sinh</strong></h3>\r\n\r\n<ul>\r\n	<li><strong>Thuế</strong>:&nbsp;Thuế thu nhập c&aacute; nh&acirc;n thực tế đ&atilde; được x&iacute; nghiệp trừ thằng v&agrave;o lương h&agrave;ng th&aacute;ng, mức thuế n&agrave;y phụ thuộc v&agrave;o rất nhiều yếu tố kh&aacute;c nhau như khu vực, ng&agrave;nh nghề&hellip;</li>\r\n	<li><strong>Bảo hiểm</strong>: Thực tập sinh sang Nhật được đ&oacute;ng 2 đến 3 loại bảo hiểm v&agrave; tổng trừ khoảng 15.000 &ndash; 20.000 Y&ecirc;n/th&aacute;ng. Được kh&aacute;m chữa bệnh định kỳ kh&ocirc;ng mất ph&iacute;, mọi vấn đề li&ecirc;n quan đến sức khỏe Thực tập sinh c&oacute; thể b&aacute;o ngay cho x&iacute; nghiệp hoặc nghiệp đo&agrave;n quản l&yacute; để được đưa đi kh&aacute;m, chữa trị.&nbsp;Sau khi hết hạn hợp đồng, Thực tập sinh được nhận lại c&aacute;c khoản tr&iacute;ch từ bảo hiểm nh&acirc;n thọ (gọi l&agrave; tiền nenkin).</li>\r\n	<li><strong>Thu&ecirc; nh&agrave; + đi lại</strong>: C&aacute;c thực tập sinh phải tự thu&ecirc; nh&agrave; để ăn ở v&agrave; sinh sống. Hầu hết c&aacute;c c&ocirc;ng ty Nhật đều c&oacute; những nh&agrave; ở nội tr&uacute; cho thực tập sinh. Chi ph&iacute; thu&ecirc; nh&agrave; khoảng 15.000 y&ecirc;n/th&aacute;ng, đi lại phương tiện c&ocirc;ng cộng hoặc xe đạp khoảng 10.000 y&ecirc;n/th&aacute;ng.</li>\r\n	<li><strong>Ăn uống</strong>: tiền ăn uống h&agrave;ng th&aacute;ng b&ecirc;n Nhật kh&aacute; đắt đỏ, thường rơi v&agrave;o khoảng 30.000 y&ecirc;n/th&aacute;ng.</li>\r\n</ul>\r\n\r\n<p>Đ&oacute; l&agrave; những khoản tối thiểu m&agrave; thực tập sinh cần chi trả mỗi th&aacute;ng. Với số tiền chi trả tr&ecirc;n, cần phải sống rất tiết kiệm v&agrave; chưa kể những phụ ph&iacute; như : kh&ocirc;ng c&oacute; bất kỳ một chuyến đi chơi hay thăm bạn b&egrave; n&agrave;o trong một th&aacute;ng liền. Đ&acirc;y l&agrave; những khoản chi của thực tập sinh khi ở Nhật Bản, c&aacute;c bạn muốn t&igrave;m hiểu chi ph&iacute; phải trả trước khi sang Nhật như ph&iacute; xuất cảnh, ph&iacute; bảo l&atilde;nh&hellip; mời xem tại&nbsp;xuất khẩu lao động nhật bản mất bao nhi&ecirc;u tiền<strong>&nbsp;</strong>?</p>\r\n\r\n<h3><strong>Lương v&agrave; thu nhập thực tế</strong></h3>\r\n\r\n<p>Lương trả trực tiếp qua thẻ ng&acirc;n h&agrave;ng của thực tập sinh&nbsp;kh&ocirc;ng th&ocirc;ng qua c&aacute; nh&acirc;n n&agrave;o kh&aacute;c. Mức lương xuất khẩu lao động Nhật Bản&nbsp;thực lĩnh của Thực tập sinh thường từ 120.000 đến 180.000 Y&ecirc;n/th&aacute;ng (đ&atilde; t&iacute;nh cả tăng ca).&nbsp;Mỗi th&aacute;ng, trung b&igrave;nh l&agrave;m việc ở Nhật để ra được 23.000.000 đến 36.000.000 đồng (t&ugrave;y v&agrave;o khả năng lao động). Đ&acirc;y l&agrave; khoản thu nhập cao đối với lao động Việt Nam, tuy nhi&ecirc;n đ&acirc;y l&agrave; thu nhập t&iacute;nh trung b&igrave;nh.</p>\r\n\r\n<h3><strong>Tu nghiệp sinh Nhật lương bao nhi&ecirc;u khi l&agrave;m th&ecirc;m ?</strong></h3>\r\n\r\n<p><strong>Lương của thực tập sinh</strong>&nbsp;được t&iacute;nh theo giờ, mỗi tuần l&agrave;m từ 40 &ndash; 44h theo quy định của x&iacute; nghiệp. Th&ocirc;ng thường hệ số cho mỗi giờ l&agrave;m th&ecirc;m từ 1,25-2 t&ugrave;y thuộc v&agrave;o t&iacute;nh chất của giờ l&agrave;m th&ecirc;m.</p>\r\n\r\n<p>V&iacute; dụ: mức lương người A l&agrave; 140.000, người B l&agrave; 120.000. Cả hai đều mỗi tuần l&agrave;m 40h v&agrave; 1 th&aacute;ng c&oacute; 28 ng&agrave;y, mức thu nhập mỗi giờ của A=875 v&agrave; B=750. =&gt;&nbsp;A c&oacute; lương thực lĩnh l&agrave; 100.000 Y&ecirc;n, B l&agrave; 80.000.</p>\r\n\r\n<p>&ndash;&nbsp;Nếu 1 tuần B l&agrave;m th&ecirc;m 1 ng&agrave;y thứ 7 th&igrave; =&gt; thu nhập l&agrave;m th&ecirc;m của B = 750*8*4*1,35 =&nbsp;32.400 (hệ số l&agrave;m th&ecirc;m 1,35, 4 tuần v&agrave; thứ 7 l&agrave;m 8 tiếng). Như vậy tổng thu nhập của B l&agrave; 152.400 Y&ecirc;n, cao hơn A d&ugrave; mức lương cơ bản thấp hơn rất nhiều.</p>\r\n\r\n<p>Vậy n&ecirc;n nếu người A đ&atilde; c&oacute; mức lương mỗi giờ cao sẵn rồi m&agrave; cũng đi l&agrave;m th&ecirc;m th&igrave; thu nhập mỗi th&aacute;ng sẽ tăng l&ecirc;n nhiều hơn hẳn so với kh&ocirc;ng l&agrave;m th&ecirc;m.</p>\r\n\r\n<p>Đ&oacute; l&agrave; những yếu tố ảnh hưởng &iacute;t nhiều để&nbsp;<strong>lương của&nbsp;lao động xuất khẩu Nhật Bản</strong>&nbsp;khi l&agrave;m việc tại Nhật Bản. Ngo&agrave;i ra, c&aacute;ch t&iacute;nh lương cho thực tập sinh c&ograve;n phụ thuộc v&agrave;o khu vực, th&agrave;nh phố kh&aacute;c nhau; ng&agrave;nh nghề l&agrave;m việc; t&iacute;nh chất c&ocirc;ng việc nặng hay nhẹ; khung lương của x&iacute; nghiệp đang l&agrave;m việc.</p>\r\n\r\n<p>Th&ecirc;m nữa, khi trao đổi với nhiều lớp lao động ở v&agrave;i năm trở lại đ&acirc;y, c&oacute; một sự thật kh&aacute; hay l&agrave; trong c&ugrave;ng x&iacute; nghiệp c&oacute; thực tập sinh Việt Nam v&agrave; Trung Quốc th&igrave; lương của Thực tập sinh Việt Nam thường cao hơn lao động Trung Quốc. Điều đ&oacute; cho thấy, chủ x&iacute; nghiệp Nhật Bản vẫn c&oacute; c&aacute;i nh&igrave;n tốt hơn với lao động Việt Nam, một phần do quan hệ hợp t&aacute;c Việt Nam &ndash; Nh&acirc;t Bản vẫn rất tốt từ nhiều năm nay.</p>\r\n', '2024-09-10 17:00:43', NULL, 'PUBLIC', 1, 8, 0),
+(115, 'Thông tin liên hệ', '', '', '<p>Xin ch&agrave;o bạn &ndash; độc giả của Kim Nam Tech,</p>\r\n\r\n<p>Lời đầu ti&ecirc;n, cho ph&eacute;p Team được gửi tới qu&yacute; kh&aacute;ch, qu&yacute; th&acirc;n nh&acirc;n v&agrave; bạn b&egrave; lời ch&uacute;c sức khỏe, th&agrave;nh đạt v&agrave; hạnh ph&uacute;c.</p>\r\n\r\n<p>Team được th&agrave;nh lập bởi team l&agrave; c&aacute;c th&agrave;nh vi&ecirc;n đ&atilde; c&oacute; những kinh nghiệm l&agrave;m việc c&aacute;c dự &aacute;n OutSource cho c&aacute;c đơn vị nh&agrave; nước như VNPT, FPT... song h&agrave;nh l&agrave; c&aacute;c dự &aacute;n Startup với mục đ&iacute;ch ban đầu l&agrave; nơi&nbsp;lưu trữ những&nbsp;<strong>b&agrave;i viết kiến thức</strong>&nbsp;hoặc những<strong>&nbsp;sản phẩm s&aacute;ng tạo</strong>&nbsp;trong qu&aacute; tr&igrave;nh học tập,&nbsp;l&agrave;m việc.</p>\r\n\r\n<p>Sau một thời gian hoạt động, Team đ&atilde; c&oacute; những bước tiến đ&aacute;ng kể cả về chất lượng v&agrave; h&igrave;nh thức. Số lượng kh&aacute;ch h&agrave;ng sử dụng dịch vụ thiết kế tăng l&ecirc;n đ&aacute;ng kể. Từ việc chăm ch&uacute;t nội dung cho website theo sở th&iacute;ch, Team đ&atilde; dần chinh phục kh&aacute;ch h&agrave;ng với những dịch vụ thiết kế s&aacute;ng tạo uy t&iacute;n v&agrave; chất lượng.</p>\r\n\r\n<p>Tự tin với khả năng đ&aacute;p ứng mọi y&ecirc;u cầu thiết kế của kh&aacute;ch h&agrave;ng, Team ch&iacute;nh thức đem lại dịch vụ&nbsp;<strong>Thiết kế Website chuy&ecirc;n nghiệp&nbsp;</strong>từ những ng&agrave;y đầu.<strong>&nbsp;</strong>Sự ủng hộ v&agrave; tin tưởng của kh&aacute;ch h&agrave;ng sẽ&nbsp;trở th&agrave;nh nguồn cảm hứng&nbsp;lớn lao cho Team trong qu&aacute; tr&igrave;nh&nbsp;ph&aacute;c họa những &yacute; tưởng thiết kế được trở th&agrave;nh hiện thực.</p>\r\n\r\n<p>Xin c&aacute;m ơn sự tin tưởng v&agrave; ủng hộ của qu&yacute; kh&aacute;ch trong thời gian qua.</p>\r\n\r\n<p>Tr&acirc;n trọng./.</p>\r\n\r\n<p>Admin<br />\r\n-- Người d&ugrave;ng c&oacute; thể sửa chữa b&agrave;i viết th&ocirc;ng tin li&ecirc;n hệ của C&ocirc;ng ty sao cho hợp l&yacute; tại Quản l&yacute; Admin --&nbsp;<br />\r\nTh&acirc;n!!</p>\r\n', '2024-09-11 14:43:23', NULL, 'PUBLIC', 6, 8, 0),
+(116, 'Tuyển 15 nữ làm may mặc ở Osaka lương hấp dẫn', '', 'z5714777879846_cf30c713cafc4783ec63f24b9f49dc10.jpg', '<p>Với nghiệp đo&agrave;n truyền thống, ch&uacute;ng t&ocirc;i đang c&oacute; cơ chế hợp t&aacute;c với ng&acirc;n h&agrave;ng&nbsp;<em>hỗ trợ vay vốn đi xuất khẩu lao động</em>&nbsp;cho c&aacute;c bạn thực tập sinh của c&ocirc;ng ty. Đ&acirc;y ch&iacute;nh l&agrave; sự ưu ti&ecirc;n r&otilde; r&agrave;ng d&agrave;nh cho thực tập sinh m&agrave; năm 2018 n&agrave;y &aacute;p dụng kể từ đơn may mặc Osaka. Đơn chỉ tuyển c&oacute; 15 nữ th&ocirc;i. C&ocirc;ng việc l&agrave;m&nbsp;may quần &aacute;o phụ nữ v&agrave; trẻ em&nbsp;cho một c&ocirc;ng ty tại Osaka. Đương nhi&ecirc;n những bạn đỗ đơn h&agrave;ng n&agrave;y phải c&oacute; kinh nghiệm về may mặc ( biết may cơ bản, được đ&agrave;o tạo tay nghề th&ecirc;m trước thi tuyển). Đổi lại mức đ&atilde;i ngộ với lao động rất tốt.</p>\r\n\r\n<p><strong>Đơn h&agrave;ng&nbsp;May mặc Osaka&nbsp;n&agrave;y&nbsp;đặc biệt v&igrave;:</strong></p>\r\n\r\n<ul>\r\n	<li>Nghiệp đo&agrave;n truyền thống đ&atilde; tuyển nhiều đợt thực tập sinh tại C&ocirc;ng ty</li>\r\n	<li>Việc l&agrave;m th&ecirc;m nhiều, c&ocirc;ng ty cam kết l&agrave;m th&ecirc;m mỗi ng&agrave;y 2h tối thiểu.</li>\r\n	<li>Hỗ trợ vay vốn đi xuất khẩu lao động Nhật Bản, thủ tục đơn giản h&oacute;a hết mức.</li>\r\n</ul>\r\n\r\n<p>C&ocirc;ng ty Hogamex&nbsp;cần tuyển dụng&nbsp;15 nữ&nbsp;đi&nbsp;l&agrave;m may mặc đi&nbsp;xuất khẩu lao động sang Nhật Bản&nbsp;2018<strong>,</strong>&nbsp;cụ thể c&aacute;c ti&ecirc;u ch&iacute; như sau:</p>\r\n\r\n<p><img alt=\"\" src=\"http://xuatkhaulaodongnb.com/wp-content/uploads/2018/03/may-mac-osaka-luong-cao-tai-nhat-ban.jpg\" style=\"height:470px; width:717px\" /></p>\r\n', '2024-09-11 15:06:44', NULL, 'PUBLIC', 3, 8, 0),
+(117, 'Tuyển lao động làm nông nghiệp đi Nhật bản trồng kinh giới', '', '', '<p><strong>TH&Ocirc;NG B&Aacute;O TUYỂN DỤNG THỰC TẬP SINH ĐI L&Agrave;M VIỆC TẠI NHẬT BẢN</strong></p>\r\n\r\n<p><strong>C&ocirc;ng ty Nh&acirc;n lực Nhật Bản</strong>&nbsp;cần tuyển dụng 09 nữ&nbsp;<strong>Thực tập sinh l&agrave;m tại Nhật bản&nbsp;</strong>(&nbsp;<strong>xuất khẩu lao động</strong>&nbsp;) theo nghề N&ocirc;ng nghiệp, cụ thể c&aacute;c ti&ecirc;u ch&iacute; như sau:</p>\r\n\r\n<h3>I.NỘI DUNG C&Ocirc;NG VIỆC :</h3>\r\n\r\n<ul>\r\n	<li>L&agrave;m N&ocirc;ng nghiệp &ndash;&nbsp;<strong>Thu hoạch l&aacute; kinh giới trong nh&agrave; k&iacute;nh</strong></li>\r\n	<li>Địa điểm l&agrave;m việc : Tỉnh &nbsp;Oita Nhật Bản</li>\r\n	<li>Loại h&igrave;nh Hợp đồng ph&aacute;i cử ( XKLĐ ) : Hợp đồng 3 năm</li>\r\n</ul>\r\n\r\n<p><img alt=\"xkldd-trong-rau-nong-nghiep-nhat-ban\" src=\"http://xuatkhaulaodongnb.com/wp-content/uploads/2014/11/xkldd-trong-rau-nong-nghiep-nhat-ban.jpg\" style=\"height:349px; width:600px\" /></p>\r\n\r\n<p>trồng rau tại nhật bản</p>\r\n\r\n<h3>II. ĐIỀU KIỆN TUYỂN DỤNG:</h3>\r\n\r\n<ul>\r\n	<li>Số lượng tuyển : 09 Thực tập sinh nữ khỏe mạnh, trong đ&oacute; c&oacute; 3 bạn đạt tr&igrave;nh độ tiếng Nhật N5</li>\r\n	<li>Độ tuổi y&ecirc;u cầu : 22-30 tuổi</li>\r\n	<li>Tr&igrave;nh độ : Tốt nghiệp cấp 3 trở l&ecirc;n.</li>\r\n	<li>Tay nghề : Kh&ocirc;ng y&ecirc;u cầu, Ưu ti&ecirc;n nữ c&oacute; kinh nghiệm l&agrave;m n&ocirc;ng nghiệp</li>\r\n	<li>C&aacute;c y&ecirc;u cầu kh&aacute;c : Cao từ 155-160cm &nbsp; Thị lực 8/10 trở l&ecirc;n, kh&ocirc;ng m&ugrave; m&agrave;u.&nbsp;Trung thực, c&oacute; sức khỏe.&nbsp;H&agrave;ng ng&agrave;y l&agrave;m việc với gi&aacute;m đốc n&ecirc;n y&ecirc;u cầu c&oacute; tiếng Nhật tốt.&nbsp;Người th&iacute;ch chăm s&oacute;c, gi&uacute;p đỡ người kh&aacute;c.</li>\r\n</ul>\r\n\r\n<h3>III. CHẾ ĐỘ PH&Uacute;C LỢI</h3>\r\n\r\n<ul>\r\n	<li>Thu nhập thực tế ( thực lĩnh sau khi trừ mọi khoản thuế, BHXH, tiền k&yacute; t&uacute;c, điện nước&hellip;) : 81 000 y&ecirc;n (lương cơ bản 115 000 Y&ecirc;n ).</li>\r\n	<li>Giờ l&agrave;m việc : Từ 8 h-17h, nghỉ Thứ 7 v&agrave; Chủ Nhật, ng&agrave;y lễ. C&oacute; l&agrave;m th&ecirc;m giờ v&agrave; l&agrave;m trong ng&agrave;y nghỉ được t&iacute;nh tiền l&agrave;m th&ecirc;m theo quy định của Luật lao đ&ocirc;ng Nhật bản.</li>\r\n</ul>\r\n\r\n<h3>IV. H&Igrave;NH THỨC THI TUYỂN</h3>\r\n\r\n<ul>\r\n	<li>H&igrave;nh thức thi tuyển:&nbsp;<strong>Tu nghiệp sinh Nhật Bản</strong>&nbsp;tham gia phỏng vấn trực tiếp với nghiệp đo&agrave;n Nhật Bản v&agrave; thi tay nghề.</li>\r\n	<li>Thời giam thi tuyển : 16/01/2015</li>\r\n	<li>Dự kiến xuất cảnh : Th&aacute;ng 07/ 2015</li>\r\n</ul>\r\n\r\n<p><strong>Hồ sơ bao gồm:</strong></p>\r\n\r\n<ul>\r\n	<li>SYLL, Hộ khẩu, CMND, Giấy khai sinh, bằng cấp.</li>\r\n	<li>X&aacute;c nhận nh&acirc;n sự, x&aacute;c nhận h&ocirc;n nh&acirc;n: do x&atilde; cấp</li>\r\n	<li>Giấy kh&aacute;m sức khỏe do bệnh viện Tr&agrave;ng An H&agrave; Nội cấp</li>\r\n</ul>\r\n\r\n<p>TH&Ocirc;NG TIN HỒ SƠ&nbsp;xem tại:&nbsp;<strong>Hồ sơ xuất khẩu lao động Nhật Bản</strong></p>\r\n\r\n<h3>V. CHƯƠNG TR&Igrave;NH Đ&Agrave;O TẠO TẠI C&Ocirc;NG TY NH&Acirc;N LỰC NHẬT BẢN</h3>\r\n\r\n<p>Tất cả lao động tham gia chương tr&igrave;nh&nbsp;<strong>xuất khẩu lao động Nhật Bản</strong>&nbsp;tại C&ocirc;ng ty được đ&agrave;o tạo chuy&ecirc;n s&acirc;u về:</p>\r\n\r\n<ul>\r\n	<li>Tiếng Nhật giao tiếp cơ bản</li>\r\n	<li>Kỹ năng l&agrave;m việc tại Nhật Bản</li>\r\n	<li>Định hướng nghề nghiệp</li>\r\n	<li>Văn h&oacute;a Nhật Bản</li>\r\n	<li>Đ&agrave;o tạo tay nghề tương ứng với c&aacute;c nh&oacute;m ng&agrave;nh nghề m&agrave; nghiệp đo&agrave;n Nhật tuyển dụng</li>\r\n</ul>\r\n\r\n<p><strong>Ch&uacute; &yacute;:</strong>&nbsp;C&ocirc;ng ty ưu ti&ecirc;n những học vi&ecirc;n tham gia kh&oacute;a đ&agrave;o tạo tiếng tại Trung t&acirc;m đ&agrave;o tạo, do vậy những thực tập sinh kỹ năng c&oacute; nhu cầu<strong>&nbsp;xuất khẩu lao động tại Nhật Bản&nbsp;</strong>&nbsp;xin li&ecirc;n hệ trực tiếp với ch&uacute;ng t&ocirc;i để được tư vấn v&agrave; hướng dẫn cụ thể.</p>\r\n\r\n<p>Đơn h&agrave;ng n&ocirc;ng nghiệp l&agrave; ĐH c&oacute; chi ph&iacute; xuất cảnh thấp, c&ocirc;ng việc l&agrave;m th&ecirc;m n&oacute;i chung l&agrave; tương đối kh&aacute; ( thực tế sẽ t&ugrave;y thuộc v&agrave;o điều kiện kh&aacute;ch qu&aacute;n v&agrave; chủ quan của Nh&agrave; m&aacute;y ph&iacute;a Nhật bản ), do nhu cầu tuyển dụng lao động từ ph&iacute;a Nhật bản để bổ sung v&agrave;o lực lượng lao động thiếu hụt v&agrave; cho ng&agrave;nh nghề n&ocirc;ng nghiệp, hiện tại số lượng&nbsp;<strong>Thực tập sinh kỹ năng</strong>&nbsp;Việt nam đi&nbsp;Xuất khẩu lao động ( XKLĐ )&nbsp;đến Nhật bản nghề n&ocirc;ng nghiệp đang chiếm tỷ trọng kh&aacute; lớn.</p>\r\n', '2024-09-11 15:08:10', NULL, 'PUBLIC', 3, 8, 0),
+(118, 'Tuyển 08 nam kỹ sư không đi Nhật tiếng phỏng vấn', '', 'z5714777919627_5779e1aed4352f4d5d73e51d74d6c46e.jpg', '<p><strong>TUYỂN 08 NAM KỸ SƯ KH&Ocirc;NG TIẾNG NHẬT BẢN</strong></p>\r\n\r\n<p>Chỉ c&ograve;n 10 ng&agrave;y để đăng k&yacute; tham gia thi tuyển đơn h&agrave;ng kĩ sư kh&ocirc;ng tiếng đầu ti&ecirc;n của th&aacute;ng 02/2018. Gi&aacute;m đốc c&ocirc;ng ty sẽ về Việt Nam trực tiếp phỏng vấn c&aacute;c bạn, c&oacute; phi&ecirc;n dịch hỗ trợ. C&aacute;c kỹ sư đợt th&aacute;ng 5/2017 sang l&agrave;m việc kh&ocirc;ng đủ cho nhu cần sản xuất n&ecirc;n lần phỏng vấn n&agrave;y gi&aacute;m đốc y&ecirc;u cầu c&aacute;c bạn phải thật chịu kh&oacute;, chăm chỉ. C&ocirc;ng ty sẽ c&oacute; mức đ&atilde;i ngộ xứng đ&aacute;ng cho c&aacute;c bạn kỹ sư l&agrave;m việc chăm chỉ nhất. Sơ qua th&ocirc;ng tin về đơn h&agrave;ng rất tốt cho c&aacute;c bạn muốn đi&nbsp;<em>đơn thao t&aacute;c m&aacute;y trong xưởng sản xuất</em>&nbsp;n&agrave;y:</p>\r\n\r\n<p><strong>Đơn h&agrave;ng&nbsp;thao t&aacute;c&nbsp;m&aacute;y trong xưởng sản xuất n&agrave;y&nbsp;đặc biệt v&igrave;:</strong></p>\r\n\r\n<ul>\r\n	<li>C&ocirc;ng ty đ&atilde; c&oacute; senpai l&agrave;m việc</li>\r\n	<li>Kh&ocirc;ng y&ecirc;u cầu tiếng, phỏng vấn qua phi&ecirc;n dịch</li>\r\n	<li>Tuyển kỹ sư c&aacute;c ng&agrave;nh cơ kh&iacute;, x&acirc;y dựng, điện, điện tử</li>\r\n</ul>\r\n\r\n<p>C&ocirc;ng ty Hogamex&nbsp;cần tuyển dụng 08 nam đi&nbsp;l&agrave;m điều khiển m&aacute;y&nbsp;v&agrave; quản l&yacute; tu nghiệp sinh&nbsp;đi&nbsp;<a href=\"http://xuatkhaulaodongnb.com/\">xuất khẩu lao động sang Nhật Bản 2018</a><strong>,</strong>&nbsp;cụ thể c&aacute;c ti&ecirc;u ch&iacute; như sau:</p>\r\n\r\n<p><img alt=\"Bạn Hùng kỹ sư đang làm việc tại Nhật\" src=\"http://xuatkhaulaodongnb.com/wp-content/uploads/2018/01/ky-su-xd-o-nhat-ban.png\" style=\"height:386px; width:600px\" /></p>\r\n\r\n<p>Bạn H&ugrave;ng kỹ sư đang l&agrave;m việc tại Nhật</p>\r\n\r\n<h3>I. NỘI DUNG C&Ocirc;NG VIỆC</h3>\r\n\r\n<ul>\r\n	<li>C&ocirc;ng việc cụ thể: điều khiển m&aacute;y trong xưởng sản xuất v&agrave; quản l&yacute; tu nghiệp sinh.</li>\r\n	<li>Địa điểm l&agrave;m việc :&nbsp;Saitama</li>\r\n	<li>Loại h&igrave;nh Hợp đồng ph&aacute;i cử ( XKLĐ ): Hợp đồng 3 năm</li>\r\n</ul>\r\n\r\n<h3>II. ĐIỀU KIỆN TUYỂN DỤNG</h3>\r\n\r\n<ul>\r\n	<li>Số lượng tuyển : 08 nam&nbsp;<strong>kỹ sư sang Nhật Bản</strong></li>\r\n	<li>Độ tuổi y&ecirc;u cầu :&nbsp;22 &ndash;&nbsp;35 tuổi</li>\r\n	<li>Tr&igrave;nh độ : tốt nghiệp cao đẳng, đại học ch&iacute;nh quy khối c&aacute;c ng&agrave;nh kỹ thuật.</li>\r\n	<li>Kinh nghiệm: kh&ocirc;ng y&ecirc;u cầu kinh nghiệm.</li>\r\n	<li>Y&ecirc;u cầu:&nbsp;Nam&nbsp;sức khỏe tốt,&nbsp;sẵn s&agrave;ng đ&aacute;p ứng nhu cầu l&agrave;m th&ecirc;m giờ. Kh&ocirc;ng m&ugrave; m&agrave;u, xăm trổ. C&oacute; kinh nghiệm l&agrave;m may cơ bản.</li>\r\n</ul>\r\n\r\n<h3>III. CHẾ ĐỘ PH&Uacute;C LỢI</h3>\r\n\r\n<ul>\r\n	<li>Lương cơ bản:&nbsp;<strong>180.000 Y&ecirc;n ~&nbsp;39 triệu đồng/th&aacute;ng. Chưa kể l&agrave;m th&ecirc;m</strong></li>\r\n	<li>L&agrave;m th&ecirc;m:&nbsp;<strong>Lương l&agrave;m th&ecirc;m&nbsp;nh&acirc;n 1,5 &ndash; 2</strong></li>\r\n	<li>Giờ l&agrave;m việc : Từ 8h-17h, nghỉ Thứ 7 v&agrave; Chủ Nhật, ng&agrave;y lễ. C&oacute; l&agrave;m th&ecirc;m giờ v&agrave; l&agrave;m trong ng&agrave;y nghỉ được t&iacute;nh tiền l&agrave;m th&ecirc;m theo quy định của Luật lao động Nhật Bản.</li>\r\n</ul>\r\n\r\n<h3>IV. H&Igrave;NH THỨC THI TUYỂN</h3>\r\n\r\n<ul>\r\n	<li>H&igrave;nh thức thi tuyển: Lao động&nbsp;tham gia phỏng vấn trực tiếp với nghiệp đo&agrave;n Nhật Bản.</li>\r\n	<li>Thời gian thi tuyển :&nbsp;<strong>10/02/2018</strong></li>\r\n	<li>Dự kiến xuất cảnh : th&aacute;ng 07/2018</li>\r\n</ul>\r\n\r\n<p><strong>Hồ sơ bao gồm:</strong></p>\r\n\r\n<ul>\r\n	<li>SYLL, Hộ khẩu, CMND, Giấy khai sinh, bằng cấp (mỗi thứ photo c&ocirc;ng chứng 2 bản)</li>\r\n	<li>X&aacute;c nhận nh&acirc;n sự, x&aacute;c nhận h&ocirc;n nh&acirc;n: do x&atilde; cấp (1 bản)</li>\r\n	<li>Giấy kh&aacute;m sức khỏe do bệnh viện Giao th&ocirc;ng vận tải&nbsp;H&agrave; Nội cấp</li>\r\n</ul>\r\n\r\n<h3>V. CHƯƠNG TR&Igrave;NH Đ&Agrave;O TẠO TẠI HOGAMEX</h3>\r\n\r\n<p>Tất cả lao động tham gia chương tr&igrave;nh&nbsp;<strong>xuất khẩu lao động Nhật Bản</strong>&nbsp;tại C&ocirc;ng ty được đ&agrave;o tạo chuy&ecirc;n s&acirc;u về:</p>\r\n\r\n<ul>\r\n	<li>Tiếng Nhật giao tiếp cơ bản</li>\r\n	<li>Kỹ năng l&agrave;m việc tại Nhật Bản</li>\r\n	<li>Định hướng nghề nghiệp</li>\r\n	<li>Văn h&oacute;a Nhật Bản</li>\r\n	<li>Đ&agrave;o tạo tay nghề tương ứng với c&aacute;c nh&oacute;m ng&agrave;nh nghề m&agrave; nghiệp đo&agrave;n Nhật tuyển dụng</li>\r\n</ul>\r\n', '2024-09-11 15:08:56', NULL, 'PUBLIC', 3, 8, 0),
+(119, 'Tuyển 60 nam thi đơn hàng nông nghiệp siêu khủng tại Nhật Bản', '', 'z5714776193357_a995637881a8620d0991b23e75f8115c.jpg', '<p>Đơn h&agrave;ng si&ecirc;u khủng, c&ocirc;ng ty ch&uacute;ng t&ocirc;i tự tin với đơn h&agrave;ng n&agrave;y sẽ đ&aacute;p ứng &ldquo;cơn kh&aacute;t&rdquo; đơn h&agrave;ng c&ocirc;ng xưởng cho c&aacute;c bạn TTS. Mở đầu năm 2018, ch&uacute;ng t&ocirc;i tự h&agrave;o l&agrave; đơn vị c&oacute; nhiều đơn h&agrave;ng tốt l&agrave;m việc trong c&ocirc;ng xưởng nhất tr&ecirc;n thị trường. Tiếp nối đơn h&agrave;ng cơ kh&iacute;, lần n&agrave;y đơn h&agrave;ng N&Ocirc;NG NGHIỆP NAM sẽ l&agrave; cơ hội lớn cho c&aacute;c bạn TTS được đặt ch&acirc;n tới đất nước &ldquo;mặt trời mọc&rdquo;. Vẫn với cơ chế nghiệp đo&agrave;n truyền thống được&nbsp;<em>hỗ trợ vay vốn ng&acirc;n h&agrave;ng đi xuất khẩu lao động</em>&nbsp;. C&aacute;c bạn TTS tham gia đơn h&agrave;ng n&agrave;y được hưởng quyền lợi m&agrave; kh&ocirc;ng ở đ&acirc;u c&oacute; được.</p>\r\n\r\n<p><strong>Đơn h&agrave;ng N&Ocirc;NG NGHIỆP 60 NAM&nbsp;n&agrave;y&nbsp;đặc biệt v&igrave;:</strong></p>\r\n\r\n<ul>\r\n	<li>Nghiệp đo&agrave;n truyền thống đ&atilde; tuyển nhiều đợt thực tập sinh tại C&ocirc;ng ty</li>\r\n	<li>Việc l&agrave;m đảm bảo, c&ocirc;ng ty cam kết c&oacute; l&agrave;m th&ecirc;m.</li>\r\n	<li>Hỗ trợ vay vốn đi xuất khẩu lao động Nhật Bản, thủ tục đơn giản h&oacute;a hết mức.</li>\r\n</ul>\r\n\r\n<p>C&ocirc;ng ty Hogamex&nbsp;cần tuyển dụng&nbsp;60 nam đi&nbsp;l&agrave;m&nbsp;n&ocirc;ng nghiệp&nbsp;đi&nbsp;xuất khẩu lao động Nhật Bản&nbsp;2018<strong>,</strong>&nbsp;cụ thể c&aacute;c ti&ecirc;u ch&iacute; như sau:</p>\r\n\r\n<p><img alt=\"Thực tập sinh ngày thi tuyển ở trung tâm đào tạo\" src=\"http://xuatkhaulaodongnb.com/wp-content/uploads/2017/12/thuc-tap-sinh-di-nhat-01.jpg\" style=\"height:500px; width:666px\" /></p>\r\n\r\n<p>Thực tập sinh ng&agrave;y thi tuyển ở trung t&acirc;m đ&agrave;o tạo</p>\r\n\r\n<h3>I. NỘI DUNG C&Ocirc;NG VIỆC</h3>\r\n\r\n<ul>\r\n	<li>C&ocirc;ng việc cụ thể:&nbsp;trồng v&agrave; thu hoạch rau củ quả</li>\r\n	<li>Địa điểm l&agrave;m việc : Ibaraki</li>\r\n	<li>Loại h&igrave;nh Hợp đồng ph&aacute;i cử ( XKLĐ ): Hợp đồng 3 năm</li>\r\n</ul>\r\n\r\n<p><img alt=\"Thông báo đơn hàng 60 nam nong nghiệp Ibaraki\" src=\"http://xuatkhaulaodongnb.com/wp-content/uploads/2018/03/don-hang-60nam-nong-nghiep-nhat-ban.png\" style=\"height:614px; width:509px\" /></p>\r\n\r\n<p>Th&ocirc;ng b&aacute;o đơn h&agrave;ng 60 nam nong nghiệp Ibaraki</p>\r\n\r\n<h3>II. ĐIỀU KIỆN TUYỂN DỤNG</h3>\r\n\r\n<ul>\r\n	<li>Số lượng tuyển :&nbsp;<strong>60 nam thực tập sinh Nhật Bản</strong></li>\r\n	<li>Độ tuổi y&ecirc;u cầu :&nbsp;19 &ndash; 30 tuổi</li>\r\n	<li>Kinh nghiệm: Kh&ocirc;ng y&ecirc;u cầu kinh nghiệm nhưng y&ecirc;u cầu cao về sự nỗ lực.</li>\r\n	<li>Y&ecirc;u cầu:\r\n	<ul>\r\n		<li>Ngoan ngo&atilde;n, chăm chỉ c&oacute; khả năng l&agrave;m th&ecirc;m giờ</li>\r\n		<li>Nghi&ecirc;m t&uacute;c khi l&agrave;m việc, sức khỏe tốt, sống h&ograve;a đồng, v&agrave; c&oacute; tr&aacute;ch nhiệm với c&ocirc;ng việc.</li>\r\n		<li>Kh&ocirc;ng m&ugrave; m&agrave;u, kh&ocirc;ng xăm trổ, kh&ocirc;ng nhuộm t&oacute;c&hellip;</li>\r\n		<li>Ưu ti&ecirc;n ứng vi&ecirc;n đ&atilde; học tiếng v&agrave; đi nghĩa vụ qu&acirc;n sự</li>\r\n		<li>Ưu ti&ecirc;n TTS c&oacute; kinh nghiệm l&agrave;m n&ocirc;ng nghiệp v&agrave; chăn nu&ocirc;i.</li>\r\n	</ul>\r\n	</li>\r\n</ul>\r\n\r\n<h3>III. CHẾ ĐỘ PH&Uacute;C LỢI</h3>\r\n\r\n<ul>\r\n	<li>Lương cơ bản:&nbsp;<strong>131.771 Y&ecirc;n ~&nbsp;27 triệu đồng/th&aacute;ng. Chưa kể l&agrave;m th&ecirc;m</strong></li>\r\n	<li>Lương thực lĩnh:&nbsp;<strong>91.771&nbsp;Y&ecirc;n. Chưa t&iacute;nh&nbsp;l&agrave;m th&ecirc;m giờ</strong></li>\r\n	<li>Giờ l&agrave;m việc : Từ 8h-17h, nghỉ Thứ 7 v&agrave; Chủ Nhật, ng&agrave;y lễ. C&oacute; l&agrave;m th&ecirc;m giờ v&agrave; l&agrave;m trong ng&agrave;y nghỉ được t&iacute;nh tiền l&agrave;m th&ecirc;m theo quy định của Luật lao động Nhật Bản.</li>\r\n</ul>\r\n\r\n<h3>IV. H&Igrave;NH THỨC THI TUYỂN</h3>\r\n\r\n<ul>\r\n	<li>H&igrave;nh thức thi tuyển: Lao động&nbsp;tham gia phỏng vấn trực tiếp với nghiệp đo&agrave;n Nhật Bản.</li>\r\n	<li>Thời gian thi tuyển :&nbsp;<strong>11/04/2018</strong></li>\r\n	<li>Dự kiến xuất cảnh : xuất cảnh nhanh,&nbsp;<strong>th&aacute;ng 10/2018</strong></li>\r\n</ul>\r\n\r\n<p><strong>Hồ sơ bao gồm:</strong></p>\r\n\r\n<ul>\r\n	<li>SYLL, Hộ khẩu, CMND, Giấy khai sinh, bằng cấp (mỗi thứ photo c&ocirc;ng chứng 2 bản)</li>\r\n	<li>X&aacute;c nhận nh&acirc;n sự, x&aacute;c nhận h&ocirc;n nh&acirc;n: do x&atilde; cấp (1 bản)</li>\r\n	<li>Giấy kh&aacute;m sức khỏe do bệnh viện Giao th&ocirc;ng vận tải&nbsp;H&agrave; Nội cấp</li>\r\n</ul>\r\n\r\n<h3>V. CHƯƠNG TR&Igrave;NH Đ&Agrave;O TẠO TẠI HOGAMEX</h3>\r\n\r\n<p>Tất cả lao động tham gia chương tr&igrave;nh&nbsp;<strong>xuất khẩu lao động Nhật Bản</strong>&nbsp;tại C&ocirc;ng ty được đ&agrave;o tạo chuy&ecirc;n s&acirc;u về:</p>\r\n\r\n<ul>\r\n	<li>Tiếng Nhật giao tiếp cơ bản</li>\r\n	<li>Kỹ năng l&agrave;m việc tại Nhật Bản</li>\r\n	<li>Định hướng nghề nghiệp</li>\r\n	<li>Văn h&oacute;a Nhật Bản</li>\r\n	<li>Đ&agrave;o tạo tay nghề tương ứng với c&aacute;c nh&oacute;m ng&agrave;nh nghề m&agrave; nghiệp đo&agrave;n Nhật tuyển dụng</li>\r\n</ul>\r\n\r\n<h3><strong>VI. LI&Ecirc;N HỆ:</strong></h3>\r\n\r\n<p>Click&nbsp;<a href=\"http://xuatkhaulaodongnb.com/tuyen-60-nam-thi-don-hang-nong-nghiep-sieu-khung-tai-nhat-ban.html\">xem li&ecirc;n hệ</a>&nbsp;nếu bạn đang xem tr&ecirc;n Mobile</p>\r\n\r\n<p>TƯ VẤN KHU VỰC MIỀN BẮC &ndash; H&Agrave; NỘI</p>\r\n\r\n<p>Mr Khoa: 0987 328 753</p>\r\n\r\n<p>Mr Ph&uacute;c: 0987 107 186</p>\r\n\r\n<p>Mr Vinh : 0904 999 886</p>\r\n\r\n<p>TƯ VẤN KHU VỰC MIỀN NAM &ndash; TP. HCM</p>\r\n\r\n<p>Mr Sỹ: 0981 778 776</p>\r\n\r\n<p>Mr H&ograve;a: 0966 295 234</p>\r\n\r\n<p>Miss Nhi: 0934 957 669</p>\r\n\r\n<p>Mr Lực: 0934 615 339</p>\r\n\r\n<p>Xem th&ecirc;m về&nbsp;<strong>Tổng hợp&nbsp;<a href=\"http://xuatkhaulaodongnb.com/tuyen-dung-lao-dong-nhat/tuyen-lao-dong-nganh-nong-nghiep/\">đơn h&agrave;ng&nbsp;n&ocirc;ng nghiệp&nbsp;Nhật Bản</a></strong></p>\r\n\r\n<p>Xem th&ecirc;m về&nbsp;<strong>Tổng hợp&nbsp;<a href=\"http://xuatkhaulaodongnb.com/tuyen-dung-lao-dong-nhat/\">đơn h&agrave;ng đi Nhật mới nhất</a></strong></p>\r\n\r\n<p><em>(*) Mọi thắc mắc của anh chị xin để lại b&igrave;nh luận ph&iacute;a dưới b&agrave;i n&agrave;y sẽ được giải đ&aacute;p 1 c&aacute;ch nhanh ch&oacute;ng nhất</em></p>\r\n\r\n<p>xuatkhaulaodongnb.com &ndash; Website tư vấn xuất khẩu lao động Nhật Bản uy t&iacute;n số 1 tại Việt Nam</p>\r\n', '2024-09-11 15:09:29', NULL, 'PUBLIC', 3, 8, 0);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username_UNIQUE` (`username`),
+  ADD UNIQUE KEY `email_UNIQUE` (`email`);
+
+--
+-- Indexes for table `advertisements`
+--
+ALTER TABLE `advertisements`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_comments_posts1_idx` (`post_id`),
+  ADD KEY `fk_comments_accounts1_idx` (`account_id`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_posts_categories_idx` (`category_id`),
+  ADD KEY `fk_posts_accounts1_idx` (`accounts_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `advertisements`
+--
+ALTER TABLE `advertisements`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `fk_comments_accounts1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`),
+  ADD CONSTRAINT `fk_comments_posts1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`);
+
+--
+-- Constraints for table `posts`
+--
+ALTER TABLE `posts`
+  ADD CONSTRAINT `fk_posts_accounts1` FOREIGN KEY (`accounts_id`) REFERENCES `accounts` (`id`),
+  ADD CONSTRAINT `fk_posts_categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-11-30 12:36:43

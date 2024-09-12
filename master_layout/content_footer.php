@@ -7,25 +7,26 @@
             <div class="row row-small" id="row-1548747647">
               <div class="col medium-4 small-12 large-4">
                 <div class="col-inner dark">
-                  <h4 class="gp-widget-title">CỔNG THÔNG TIN XUẤT KHẨU LAO ĐỘNG NHẬT BẢN</h4>
+                  <h4 class="gp-widget-title">CỔNG THÔNG TIN CÔNG TY THHH JinSung Press</h4>
                   <ul>
                     <li>
-                      <span style="font-size: 95%;">Địa chỉ: Số 29 ngõ 18 Lương Ngọc Quyến, Thanh Xuân, Hà Nội.</span>
+                      <span style="font-size: 95%;">Địa chỉ: Đường Hoàng Hoa Thám, TDP Bắc Sơn, Phường Đồng Tâm,  Thành Phố Vĩnh Yên, Tỉnh Vĩnh Phúc, Việt Nam
+</span>
                     </li>
                     <li>
-                      <span style="font-size: 95%;">Hotline: 0972.939.840 - 0963.854.836</span>
+                      <span style="font-size: 95%;">Hotline: 0984.211.xxx</span>
                     </li>
                     <li>
                       <span style="font-size: 95%;">Email: demo@gmail.com</span>
                     </li>
                     <li>
-                      <span style="font-size: 95%;">Website: www.WEBDESIGN.COM | www.WEBDESIGN.COM</span>
+                      <span style="font-size: 95%;">Website: www.jinsungpress.com | www.jinsungpress.com</span>
                     </li>
                   </ul>
                   <p>
                     <b> Hotline tư vấn 24/7: <br />
                     </b>
-                    <span style="font-size: 170%;">0909.009.009</span>
+                    <span style="font-size: 170%;">0984.211.xxx</span>
                   </p>
                 </div>
               </div>
@@ -35,12 +36,12 @@
                   <p>
                     <span style="font-size: 95%;">Chúng tôi dùng uy tín của mình để cam kết đem tới cho khách hàng dịch vụ xuất khẩu lao động tiết kiệm và uy tín nhất tại miền Bắc.</span>
                   </p>
-                  <div class="y-kien-dong-gop"> Mọi ý kiến đóng góp, xin vui lòng gửi về email: demo@gmail.com hoặc liên hệ trực tiếp hotline: <br />0909.009.009 </div>
+                  <div class="y-kien-dong-gop"> Mọi ý kiến đóng góp, xin vui lòng gửi về email: demo@gmail.com hoặc liên hệ trực tiếp hotline: <br />0984.211.xxx </div>
                   <div class="gap-element" style="display:block; height:auto; padding-top:20px" class="clearfix"></div>
                   <div class="row" id="row-625809937">
                     <div class="col medium-6 small-12 large-6">
                       <div class="col-inner">
-                        <a rel="noopener noreferrer" href="#" target="_blank" class="button white expand" style="border-radius:4px;">
+                        <a rel="noopener noreferrer" href="tel:+84901234xxx" target="_blank" class="button white expand" style="border-radius:4px;">
                           <span>Liên hệ ngay</span>
                         </a>
                       </div>
@@ -58,7 +59,7 @@
               <div class="col medium-4 small-12 large-4">
                 <div class="col-inner dark">
                   <h3>BẢN ĐỒ ĐƯỜNG ĐI</h3>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.213017037444!2d105.79226011432783!3d20.984096594678835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acc6066cb537%3A0x4fc1c256d7cdb4d!2zR2l1c2VBcnQgLSBUaGnhur90IGvhur8gxJHhu5MgaOG7jWEgdsOgIHdlYnNpdGUgY2h1ecOqbiBuZ2hp4buHcA!5e0!3m2!1svi!2s!4v1527268515532" width="600" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d8839.801727782457!2d105.56700219109776!3d21.323704857562703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDE5JzA2LjUiTiAxMDXCsDM3JzEwLjgiRQ!5e0!3m2!1svi!2sjp!4v1726047334315!5m2!1svi!2sjp" width="600" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
               </div>
               <style scope="scope"></style>
@@ -76,7 +77,7 @@
         <div class="absolute-footer light medium-text-center text-center">
           <div class="container clearfix">
             <div class="footer-primary pull-left">
-              <div class="copyright-footer">All Site Contents © Copyright WEBDESIGN.COM | WEBDESIGN.COM. All Rights Reserved </div>
+              <div class="copyright-footer">All Site Contents © Copyright jinsungpress.com | jinsungpress.com. All Rights Reserved </div>
             </div>
             <!-- .left -->
           </div>

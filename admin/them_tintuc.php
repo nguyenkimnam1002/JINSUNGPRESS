@@ -96,6 +96,7 @@ include_once('./../master_layout/Function.php') ;?>
                     <div class="form-group">
                         <label for="">Thể loại</label>
                         <select name="category_id" id="category_id">
+                            <option value=3 selected> Tin tuyển dụng</option>
                             <?php while ($row = mysqli_fetch_assoc($query_category)):?>
                                 <option value=<?php echo $row['id'];?>> <?php echo $row['name'];?></option>
                             <?php endwhile;?>

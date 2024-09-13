@@ -45,6 +45,17 @@ $dichVu = $db->fetchsql($sql_dichVu);
                   }
                 </style>
               </div>
+              <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1130627872">
+                <div class="img-inner image-cover dark" style="padding-top:33%;">
+                  <img style="object-fit: scale-down !important;" width="1366" height="463" src="<?php echo base_url() ?>image/background_2.png" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="" sizes="(max-width: 1366px) 100vw, 1366px" />
+                  <div class="caption">Nhật Bản là thị trường có tiềm năng rất lớn cho lao động Việt Nam, doanh nghiệp Nhật Bản luôn mở cửa chào đón những lao động Việt Nam chăm chỉ, có tay nghề, có ý chí phấn đấu vươn lên</div>
+                </div>
+                <style scope="scope">
+                  #image_1130627872 {
+                    width: 100%;
+                  }
+                </style>
+              </div>
               <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1130627871">
                 <div class="img-inner image-cover dark" style="padding-top:33%;">
                   <img width="1366" height="463" src="<?php echo base_url() ?>image/slide2.jpg" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="" sizes="(max-width: 1366px) 100vw, 1366px" />

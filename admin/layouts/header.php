@@ -178,10 +178,10 @@ if (!isset($_SESSION['account_admin']) && basename($_SERVER['PHP_SELF']) != 'log
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div class="image">
-                            <img src="./Public/admin/dist/img/Long.jpg" class="img-circle elevation-2" alt="User Image">
+                            <img src="./Public/admin/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block">Admin Nam VPC</a>
+                            <a href="#" class="d-block">Admin</a>
                         </div>
                     </div>
 

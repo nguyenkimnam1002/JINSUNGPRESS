@@ -1,3 +1,4 @@
+<div> Xin chào </div>
 <?php
      require('./connect.php');
      include_once('./master_layout/Database.php') ;

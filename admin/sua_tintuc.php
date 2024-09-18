@@ -7,8 +7,11 @@ include_once('./../master_layout/Function.php') ;
 
 
     // $sql_post = "SELECT * FROM posts";
-    $sql_category= "SELECT * FROM categories";
+    $sql_category= "SELECT * FROM categories WHERE id <> (select c.id from posts p, categories c where p.category_id = c.id and p.id = $id)";
     $sql_post = "SELECT * FROM posts";
+
+    // get categories của post 
+    $sql_idcategory = "SELECT c.* FROM posts p, categories c where p.category_id = c.id and p.id = $id";
 
     $sql_up = "SELECT * FROM posts WHERE id = $id";
     $sql_account = "SELECT * FROM accounts";
@@ -16,6 +19,7 @@ include_once('./../master_layout/Function.php') ;
     
     $query_account = mysqli_query($conn, $sql_account);
     $query_up = mysqli_query($conn, $sql_up);
+    $query_idcategory = mysqli_query($conn, $sql_idcategory);
     $row_up = mysqli_fetch_assoc($query_up);
     if(!$row_up){
         header("Location: ../ds_tintuc.php");
@@ -107,6 +111,9 @@ include_once('./../master_layout/Function.php') ;
                     <div class="form-group">
                         <label for="">Thể loại</label>
                         <select name="category_id" id="category_id">
+                            <?php while ($row1 = mysqli_fetch_assoc($query_idcategory)):?>
+                                <option value=<?php echo $row1['id'];?>> <?php echo $row1['name'];?></option>
+                            <?php endwhile;?>
                             <?php while ($row = mysqli_fetch_assoc($query_category)):?>
                                 <option value=<?php echo $row['id'];?> <?php if($row['id'] == $row_up['category_id']) echo 'checked';?>> <?php echo $row['name'];?></option>
                             <?php endwhile;?>

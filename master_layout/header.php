@@ -4,7 +4,7 @@ session_start();
 
 require('./master_layout/Function.php');
 ?>
-<?php include_once('./master_layout/Function.php') ;
+<?php include_once('./master_layout/Function.php');
 require "connect.php";
 ?>
 <!DOCTYPE html>

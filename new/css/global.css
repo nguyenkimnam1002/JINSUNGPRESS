@@ -6,8 +6,8 @@ img {max-width:100%;}
 #header {position:fixed;left:0;top:0;width:100%;z-index:200;box-shadow:inset 0 -1px rgba(255,255,255,0.35);padding:0 20px;transition:0.3s;}
 #header .inner {max-width:1520px;height:100px;position:relative;text-align:center;padding:0 83px 0 102px;transition:0.3s;margin:0 auto;}
 #header .mnu {display:none;width:34px;height:34px;right:0;top:50%;margin-top:-17px;background:none;color:#fff;font-size:24px;position:absolute;border:none;transition:0.3s;}
-#header .logo {position:absolute;left:0;top:30px;transition:0.3s}
-#header .logo a {display:block;width:102px;height:44px;background:url(../images/logo.png) no-repeat;text-indent:-9999px;}
+#header .logo {position:absolute;left:0;transition:0.3s}
+#header .logo a {display:block;width:102px;height:70px;background:url(../images/logo_jinsung.png) no-repeat;text-indent:-9999px;}
 
 .headSc #header {box-shadow:0 1px 1px rgba(0,0,0,0.15);background:rgba(255,255,255,1);}
 .headSc #header .gnb > li > a {color:#333;}
@@ -22,7 +22,7 @@ img {max-width:100%;}
 	#header .link {position:absolute;right:0;top:50%;font-size:16px;font-weight:400;color:rgba(255,255,255,0.5);margin-top:-8px;display:block;transition:0.3s;}
 
 	.headSc #header .inner {height:70px;}
-	.headSc #header .logo {top:14px;}
+	.headSc #header .logo {top:0px;}
 	.headSc #header .gnb > li > a {height:70px;line-height:70px;}
 }
 
@@ -33,7 +33,7 @@ img {max-width:100%;}
 @media all and (max-width:1024px){
 	#header .inner {height:50px;padding:0;}
 	#header .logo {top:50%;margin-top:-15px;}
-	#header .logo a {width:70px;height:30px;background-size:contain;}
+	#header .logo a {width:70px;height:30px;top: 0px;background-size:contain;}
 	#header .mnu {display:block;}
 
 	#nav {display:none;position:fixed;top:50px;left:0;width:100%;background:#fff;text-align:center;box-shadow:0 1px 1px rgba(0,0,0,0.15);border-top:1px solid #ddd;}
@@ -185,7 +185,7 @@ img {max-width:100%;}
 	#ah .txt {font-size:14px;line-height:1.5em;margin-top:20px;}
 	#ah .about {padding:30px 20px;}
 	#ah .history {padding:30px 20px 100px;}
-	#ah .history .area {padding:0;margin-top:20px;border-left:1px solid #e1e1e1;padding-left:20px;}
+	#ah .history .area {padding:0;margin-top:20px;border-left:1px solid #e1e1e1;padding-left:20px;padding-bottom: 385px;}
 	#ah .history .area .os-viewport {overflow:visible !important;}
 	#ah .history .area .os-size-auto-observer {overflow:visible !important;}
 	#ah .history .area .roll {padding:0;display:block;white-space:normal;background:none;}
@@ -240,7 +240,7 @@ img {max-width:100%;}
 #service .inner {max-width:1200px;margin:0 auto;}
 #service .area {margin:90px -30px 0;}
 #service .area:after {content:'';display:block;clear:both;}
-#service .area .box {float:left;width:33.33333%;padding:0 30px;position:relative;}
+#service .area .box {float:left;width:25%;padding:0 30px;position:relative;}
 #service .area .box dl {margin-top:55px;color:#000;}
 #service .area .box dl dt {font-size:30px;font-weight:bold;}
 #service .area .box dl dd {font-size:22px;line-height:1.8em;margin-top:20px;letter-spacing:-0.025em;}
@@ -254,6 +254,66 @@ img {max-width:100%;}
 	#service .area .box dl {margin-top:15px;color:#000;}
 	#service .area .box dl dt {font-size:20px;}
 	#service .area .box dl dd {font-size:14px;line-height:1.5em;margin-top:10px;}
+}
+
+#service {background:#f5f5f5;padding:120px 20px 200px;position:relative;}
+#service .inner {max-width:1200px;margin:0 auto;}
+#service .area {margin:90px -30px 0;display: flex;flex-wrap: wrap;}
+#service .area:after {content:'';display:block;clear:both;}
+#service .area .box1 {float:left;padding:0 30px;position:relative;}
+#service .area .box1 dl {margin-top:55px;color:#000;}
+#service .area .box1 dl dt {font-size:30px;font-weight:bold;}
+#service .area .box1 dl dd {font-size:22px;line-height:1.8em;margin-top:20px;letter-spacing:-0.025em;}
+
+@media all and (max-width:1024px){
+	#service {padding:50px 20px 100px;}
+	#service .area {margin:20px 0 0;}
+	#service .area .box1 {float:none;width:auto;padding:0;}
+	#service .area .box1 ~ .box {margin-top:30px;}
+	#service .area .box1 .img img {display:block;width:100%;}
+	#service .area .box1 dl {margin-top:15px;color:#000;}
+	#service .area .box1 dl dt {font-size:20px;}
+	#service .area .box1 dl dd {font-size:14px;line-height:1.5em;margin-top:10px;}
+}
+
+#pdt4 {position:relative;}
+#pdt4 .inner {max-width:1200px;margin:0 auto;}
+#pdt4 .area {margin:25px -30px 0;display: flex;flex-wrap: wrap;}
+#pdt4 .area:after {content:'';display:block;clear:both;}
+#pdt4 .area .box1 {float:left;padding:0 30px;position:relative;}
+#pdt4 .area .box1 dl {margin-top:55px;color:#000;}
+#pdt4 .area .box1 dl dt {font-size:30px;font-weight:bold;}
+#pdt4 .area .box1 dl dd {font-size:22px;line-height:1.8em;margin-top:20px;letter-spacing:-0.025em;}
+
+@media all and (max-width:1024px){
+	#pdt4 {padding:50px 20px 100px;}
+	#pdt4 .area {margin:20px 0 0;}
+	#pdt4 .area .box1 {float:none;width:auto;padding:0;}
+	#pdt4 .area .box1 ~ .box {margin-top:30px;}
+	#pdt4 .area .box1 .img img {display:block;width:100%;}
+	#pdt4 .area .box1 dl {margin-top:15px;color:#000;}
+	#pdt4 .area .box1 dl dt {font-size:20px;}
+	#pdt4 .area .box1 dl dd {font-size:14px;line-height:1.5em;margin-top:10px;}
+}
+
+#tuyendung {background:#f5f5f5;padding:10px 20px 200px;position:relative;}
+#tuyendung .inner {max-width:1200px;margin:0 auto;}
+#tuyendung .area {margin:90px -30px 0;display: flex;flex-wrap: wrap;}
+#tuyendung .area:after {content:'';display:block;clear:both;}
+#tuyendung .area .box {float:left;padding:0 30px;position:relative;}
+#tuyendung .area .box dl {margin-top:55px;color:#000;}
+#tuyendung .area .box dl dt {font-size:30px;font-weight:bold;}
+#tuyendung .area .box dl dd {font-size:22px;line-height:1.8em;margin-top:20px;letter-spacing:-0.025em;}
+
+@media all and (max-width:1024px){
+	#tuyendung {padding:50px 20px 100px;}
+	#tuyendung .area {margin:20px 0 0;}
+	#tuyendung .area .box {float:none;width:auto;padding:0;}
+	#tuyendung .area .box ~ .box {margin-top:30px;}
+	#tuyendung .area .box .img img {display:block;width:100%;}
+	#tuyendung .area .box dl {margin-top:15px;color:#000;}
+	#tuyendung .area .box dl dt {font-size:20px;}
+	#tuyendung .area .box dl dd {font-size:14px;line-height:1.5em;margin-top:10px;}
 }
 
 #fac {background:#bbc6d0;position:relative;padding:90px 20px;}
@@ -299,7 +359,7 @@ img {max-width:100%;}
 	#respon .area .box dl dd {font-size:14px;line-height:1.5em;margin-top:10px;}
 }
 
-#contact {padding:120px 20px;background:#f5f5f5;}
+#contact {padding:10px 20px;background:#f5f5f5;}
 #contact .area {margin-top:60px;}
 #contact .area:after {content:'';display:block;clear:both;}
 #contact .area > div {float:left;position:relative;}

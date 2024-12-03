@@ -344,7 +344,7 @@ var sc = {
 
 		function startScr(){
 			ele.each(function(i){
-				solh[i] = parseInt(ele.eq(i).offset().top - (winH() - (winH()/1.5)));
+				solh[i] = parseInt(ele.eq(i).offset().top - (953 - (953/1.5)));
 			});
 			setTimeout(function(){
 				motionArea();
